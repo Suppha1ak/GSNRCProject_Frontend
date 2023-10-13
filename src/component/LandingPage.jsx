@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/style.css";
 import PropTypes from 'prop-types';
+const videoSrc = new URL("../assets/video/Homepage.mp4", import.meta.url).href;
 
 const LandingPage = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState("00:00:00");
@@ -47,7 +48,7 @@ const LandingPage = ({ onNavigate }) => {
       </head>
       <header>
         <video autoPlay playsInline muted loop preload>
-          <source src="https://vod-progressive.akamaized.net/exp=1697141733~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3680%2F21%2F543403676%2F2577064908.mp4~hmac=0078ac89976af3ddb4bcc7f9cb4137c8ddddd4a22c2c6acc74c287404b12fdc1/vimeo-prod-skyfire-std-us/01/3680/21/543403676/2577064908.mp4?filename=file.mp4" />
+          <source src={videoSrc} />
         </video>
         <svg
           xmlns="http://www.w3.org/2000/svg"
