@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../assets/css/style.css";
+import "../css/style.css";
 import PropTypes from 'prop-types';
 
 const LandingPage = ({ onNavigate }) => {
