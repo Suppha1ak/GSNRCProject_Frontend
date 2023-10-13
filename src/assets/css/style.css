@@ -1,0 +1,161 @@
+@font-face {
+  font-family: Biko;
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/biko-black.woff");
+}
+body {
+  background: white;
+  margin: 2rem;
+  font-family: Biko, sans-serif;
+}
+header {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1200px;
+}
+header video {
+  width: 100%;
+}
+svg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+svg .big-text {
+  font-family: Biko, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 38px;
+  text-anchor: middle; /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
+}
+
+svg .small-text {
+  font-family: Biko, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-anchor: middle; /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
+}
+
+svg rect {
+  fill: white;
+}
+svg > rect {
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+}
+
+#navigateButton {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 10px 20px;
+  background-color: #1C1C1C;
+  color: #FED75A;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  z-index: 0; /* ทำให้ปุ่มอยู่ข้างหลังกล่องแชท */
+}
+
+#navigateButton:hover {
+  background-color: #333;
+
+  /* เพิ่ม box-shadow เมื่อ hover โดยเพิ่มความโปร่งแสงและปรับความกว้างและความมืดของเงา */
+  box-shadow: 0 0 20px 8px #FED75A;
+}
+
+.chat-container {
+  position: absolute;
+  bottom: 25%; /* ปรับค่านี้เพื่อให้ขยับขึ้นไปบนอีก */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+
+.message {
+  margin-bottom: 25px;
+  padding: 8px;
+  border-radius: 15px;
+  max-width: 80%;
+  clear: both;
+}
+
+.message-right {
+  background-color: #FED75A; /* สีเหลือง */
+  color: #333;
+  float: right;
+}
+
+.message-left {
+  background-color: #e0e0e0; /* สีเทา */
+  color: #333;
+  float: left;
+}
+
+.social-icons {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icon {
+  margin: 10px 0;
+  background-color: white;
+  width: 160px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: width 0.3s, background-color 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.social-icon i, .social-icon span {
+  font-size: 20px;
+  z-index: 1;
+}
+
+.social-icon i {
+  color: black;  /* สีไอคอนเป็นสีดำ */
+}
+
+.social-icon span {
+  position: absolute;
+  right: -100px;
+  white-space: nowrap;
+  transition: right 0.3s;
+  color: #FED75A;  /* สีข้อความเป็นสีเหลือง */
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 160px;
+}
+
+.social-icon:hover i {
+  transform: translateX(-50px);
+}
+
+.social-icon:hover span {
+  right: 10px;
+}
