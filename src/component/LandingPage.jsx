@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/style.css";
 import PropTypes from 'prop-types';
-const videoSrc = new URL("../assets/video/Homepage.mp4", import.meta.url).href;
+
+const videoSrc = new URL("../assets/video/BlackCar.mp4", import.meta.url).href;
+const videoSrc2 = new URL("../assets/video/neon.mp4", import.meta.url).href;
+
+console.log(videoSrc);
+console.log(videoSrc2);
 
 const LandingPage = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState("00:00:00");
-  const videoRef = React.createRef();
-
-  LandingPage.propTypes = {
-    onNavigate: PropTypes.func.isRequired,
-  };
+  const videoRef = React.useRef(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion)").matches) {
-      videoRef.current.removeAttribute("autoplay");
-      videoRef.current.pause();
-    }
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+          // หากเกิดข้อผิดพลาดในการเล่นวิดีโอ แสดง error ใน console
+          console.error("Video play failed:", error);
+      });
+  }
 
     function updateCurrentTime() {
       const now = new Date();
@@ -27,27 +30,20 @@ const LandingPage = ({ onNavigate }) => {
       setCurrentTime(timeString);
     }
 
-    // อัปเดตเวลาทันทีเมื่อ component ถูก render
     updateCurrentTime();
-
-    // อัปเดตเวลาทุก ๆ 1 วินาที
     const interval = setInterval(updateCurrentTime, 1000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [videoRef]);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        />
-      </head>
+      <video className="background-video" autoPlay loop muted>
+          <source src={videoSrc2} type="video/mp4" />
+          Your browser does not support the video tag.
+      </video>
       <header>
-        <video autoPlay playsInline muted loop preload>
+        <video ref={videoRef} autoPlay playsInline muted loop preload="auto">
           <source src={videoSrc} />
         </video>
         <svg
@@ -102,6 +98,10 @@ const LandingPage = ({ onNavigate }) => {
       </div>
     </>
   );
+};
+
+LandingPage.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
 };
 
 export default LandingPage;

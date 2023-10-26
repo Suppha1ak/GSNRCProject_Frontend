@@ -55,7 +55,7 @@ svg > rect {
   
   padding: 10px 20px;
   background-color: #1C1C1C;
-  color: #FED75A;
+  color: rgba(0, 204, 255, 1);
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -68,7 +68,13 @@ svg > rect {
   background-color: #333;
 
   /* เพิ่ม box-shadow เมื่อ hover โดยเพิ่มความโปร่งแสงและปรับความกว้างและความมืดของเงา */
-  box-shadow: 0 0 20px 8px #FED75A;
+  box-shadow: 
+  0 0 5px rgba(255, 20, 147, 1), 
+  0 0 10px rgba(0, 204, 255, 1),
+  0 0 15px rgba(255, 20, 147, 1), 
+  0 0 20px rgba(0, 204, 255, 1),
+  0 0 30px rgba(255, 20, 147, 1), 
+  0 0 45px rgba(0, 204, 255, 1);
 }
 
 .chat-container {
@@ -96,13 +102,13 @@ svg > rect {
 }
 
 .message-right {
-  background-color: #FED75A; /* สีเหลือง */
+  background-color: rgba(0, 204, 255, 1); 
   color: #333;
   float: right;
 }
 
 .message-left {
-  background-color: #e0e0e0; /* สีเทา */
+  background-color: rgba(255, 20, 147, 1);
   color: #333;
   float: left;
 }
@@ -136,7 +142,7 @@ svg > rect {
 }
 
 .social-icon i {
-  color: black;  /* สีไอคอนเป็นสีดำ */
+  color: black;
 }
 
 .social-icon span {
@@ -144,7 +150,7 @@ svg > rect {
   right: -100px;
   white-space: nowrap;
   transition: right 0.3s;
-  color: #FED75A;  /* สีข้อความเป็นสีเหลือง */
+  color: rgba(0, 204, 255, 1);
 }
 
 .social-icon:hover {
@@ -159,3 +165,21 @@ svg > rect {
 .social-icon:hover span {
   right: 10px;
 }
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100px;
+  height: 100vh;
+  object-fit: cover;
+  box-shadow: 
+    0 0 5px rgba(255, 20, 147, 1), 
+    0 0 10px rgba(0, 204, 255, 1),
+    0 0 15px rgba(255, 20, 147, 1), 
+    0 0 20px rgba(0, 204, 255, 1),
+    0 0 30px rgba(255, 20, 147, 1), 
+    0 0 45px rgba(0, 204, 255, 1);
+}
+
