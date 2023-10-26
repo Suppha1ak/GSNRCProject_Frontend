@@ -102,13 +102,13 @@ svg > rect {
 }
 
 .message-right {
-  background-color: rgba(0, 204, 255, 1); 
+  background-color: rgba(0, 204, 255, 1);
   color: #333;
   float: right;
 }
 
 .message-left {
-  background-color: rgba(255, 20, 147, 1);
+  background-color: #e0e0e0;
   color: #333;
   float: left;
 }
@@ -142,7 +142,7 @@ svg > rect {
 }
 
 .social-icon i {
-  color: black;
+  color: black;  /* สีไอคอนเป็นสีดำ */
 }
 
 .social-icon span {
@@ -150,7 +150,7 @@ svg > rect {
   right: -100px;
   white-space: nowrap;
   transition: right 0.3s;
-  color: rgba(0, 204, 255, 1);
+  color: rgba(0, 204, 255, 1);  /* สีข้อความเป็นสีเหลือง */
 }
 
 .social-icon:hover {
