@@ -2,20 +2,24 @@
   font-family: Biko;
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/biko-black.woff");
 }
+
 body {
   background: white;
   margin: 2rem;
   font-family: Biko, sans-serif;
 }
+
 header {
   width: 100%;
   margin: 0 auto;
   position: relative;
   max-width: 1200px;
 }
+
 header video {
   width: 100%;
 }
+
 svg {
   width: 100%;
   position: absolute;
@@ -23,12 +27,14 @@ svg {
   left: 0;
   height: 100%;
 }
+
 svg .big-text {
   font-family: Biko, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 38px;
-  text-anchor: middle; /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
+  text-anchor: middle;
+  /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
 }
 
 svg .small-text {
@@ -36,12 +42,14 @@ svg .small-text {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 20px;
-  text-anchor: middle; /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
+  text-anchor: middle;
+  /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
 }
 
 svg rect {
   fill: white;
 }
+
 svg > rect {
   -webkit-mask: url(#mask);
   mask: url(#mask);
@@ -52,34 +60,32 @@ svg > rect {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  
+
   padding: 10px 20px;
-  background-color: #1C1C1C;
-  color: rgba(0, 204, 255, 1);
+  background-color: #1c1c1c;
+  color: rgb(236, 157, 54);
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
-  z-index: 0; /* ทำให้ปุ่มอยู่ข้างหลังกล่องแชท */
+  z-index: 0;
+  /* ทำให้ปุ่มอยู่ข้างหลังกล่องแชท */
 }
 
 #navigateButton:hover {
   background-color: #333;
 
   /* เพิ่ม box-shadow เมื่อ hover โดยเพิ่มความโปร่งแสงและปรับความกว้างและความมืดของเงา */
-  box-shadow: 
-  0 0 5px rgba(255, 20, 147, 1), 
-  0 0 10px rgba(0, 204, 255, 1),
-  0 0 15px rgba(255, 20, 147, 1), 
-  0 0 20px rgba(0, 204, 255, 1),
-  0 0 30px rgba(255, 20, 147, 1), 
-  0 0 45px rgba(0, 204, 255, 1);
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(236, 157, 54),
+    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(236, 157, 54), 0 0 30px rgb(0, 0, 0),
+    0 0 45px rgb(236, 157, 54);
 }
 
 .chat-container {
   position: absolute;
-  bottom: 25%; /* ปรับค่านี้เพื่อให้ขยับขึ้นไปบนอีก */
+  bottom: 25%;
+  /* ปรับค่านี้เพื่อให้ขยับขึ้นไปบนอีก */
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -102,7 +108,7 @@ svg > rect {
 }
 
 .message-right {
-  background-color: rgba(0, 204, 255, 1);
+  background-color: rgb(236, 157, 54);
   color: #333;
   float: right;
 }
@@ -136,13 +142,15 @@ svg > rect {
   position: relative;
 }
 
-.social-icon i, .social-icon span {
+.social-icon i,
+.social-icon span {
   font-size: 20px;
   z-index: 1;
 }
 
 .social-icon i {
-  color: black;  /* สีไอคอนเป็นสีดำ */
+  color: black;
+  /* สีไอคอนเป็นสีดำ */
 }
 
 .social-icon span {
@@ -150,7 +158,8 @@ svg > rect {
   right: -100px;
   white-space: nowrap;
   transition: right 0.3s;
-  color: rgba(0, 204, 255, 1);  /* สีข้อความเป็นสีเหลือง */
+  color: rgb(236, 157, 54);
+  /* สีข้อความเป็นสีเหลือง */
 }
 
 .social-icon:hover {
@@ -174,12 +183,7 @@ svg > rect {
   width: 100px;
   height: 100vh;
   object-fit: cover;
-  box-shadow: 
-    0 0 5px rgba(255, 20, 147, 1), 
-    0 0 10px rgba(0, 204, 255, 1),
-    0 0 15px rgba(255, 20, 147, 1), 
-    0 0 20px rgba(0, 204, 255, 1),
-    0 0 30px rgba(255, 20, 147, 1), 
-    0 0 45px rgba(0, 204, 255, 1);
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(236, 157, 54),
+    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(236, 157, 54), 0 0 30px rgb(0, 0, 0),
+    0 0 45px rgb(236, 157, 54);
 }
-

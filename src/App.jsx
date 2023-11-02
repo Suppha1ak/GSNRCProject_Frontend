@@ -1,5 +1,7 @@
 import { useState } from "react";
 import LandingPage from "./component/LandingPage";
+import Loading from "./isLoading/loadingPage"
+import AnimationLoading from "./assets/videoJSON/loadingPage.json"
 
 const App = () => {
   const [showLandingPage, setShowLandingPage] = useState(() => {
@@ -19,6 +21,7 @@ const App = () => {
 
   return (
     <div>
+      <Loading animation = {AnimationLoading} />
       <h1>Welcome ยินดีต้อนรับ</h1>
     </div>
   );
