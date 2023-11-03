@@ -1,5 +1,5 @@
 import axios from 'axios';
-import tokenService from "../token.service.js"
+import tokenService from "../token.service"
 
 const URL = import.meta.env.VITE_BASE_URL;
 const Username = import.meta.env.VITE_BASE_USERNAME;

@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../assets/css/style.css";
 import PropTypes from 'prop-types';
+import '../../assets/css/style.css'
 
-const videoSrc = new URL("../assets/video/BlackCar.mp4", import.meta.url).href;
-const videoSrc2 = new URL("../assets/video/neon.mp4", import.meta.url).href;
-
-console.log(videoSrc);
-console.log(videoSrc2);
-
+const videoSrc = new URL("../../assets/video/BlackCar.mp4", import.meta.url).href;
 const LandingPage = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const videoRef = React.useRef(null);
