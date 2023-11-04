@@ -1,14 +1,184 @@
-@font-face {
-  font-family: Biko;
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/biko-black.woff");
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+
+.white-text {
+  color: white;
+  /* ตั้งสีของตัวอักษรเป็นสีขาว */
 }
 
-body {
-  background: white;
-  margin: 2rem;
-  font-family: Biko, sans-serif;
+/* homePage */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+* a {
+  text-decoration: none;
+}
+
+* li {
+  list-style: none;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  /* ทำให้วิดีโอครอบพื้นหลัง */
+  filter: brightness(45%);
+}
+
+.navBar {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  height: 15vh;
+}
+
+.navBar ul {
+  display: flex;
+  align-items: center;
+}
+
+.navBar ul li {
+  padding: 0 25px;
+}
+
+.navBar ul li a {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+}
+
+.contentNoflex {
+
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+}
+
+.NameSpace {
+  color: #fff;
+  padding: 25px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+}
+
+.card h2 {
+  color: #fff;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+.card .box1,
+.box2,
+.box3,
+.box4 {
+  width: 90%;
+  height: 220px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.box1 {
+  background-image: url("https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 ");
+}
+
+.box2 {
+  background-image: url("https://images.pexels.com/photos/8387448/pexels-photo-8387448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.box3 {
+  background-image: url("https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.box4 {
+  background-image: url("https://images.pexels.com/photos/5976517/pexels-photo-5976517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.NameSpace h2 {
+  font-size: 2rem;
+  letter-spacing: 2.8px;
+}
+
+.text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.txt h1 {
+  font-size: 7rem;
+  visibility: hidden;
+}
+
+.NameSpace p {
+  opacity: 0.4;
+}
+
+.tnx h2 i {
+  color: #FF5851;
+}
+
+.card div {
+  transition: 0.5s;
+}
+
+.card div:hover {
+  transition: 0.3s;
+  transform: translateY(-10px);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* videoHome */
 header {
   width: 100%;
   margin: 0 auto;
@@ -29,28 +199,26 @@ svg {
 }
 
 svg .big-text {
-  font-family: Biko, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 38px;
   text-anchor: middle;
-  /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
 }
 
 svg .small-text {
-  font-family: Biko, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 20px;
   text-anchor: middle;
-  /* ให้ตัวอักษรยืนยันกลางตามแนวนอน */
 }
 
 svg rect {
   fill: white;
 }
 
-svg > rect {
+svg>rect {
   -webkit-mask: url(#mask);
   mask: url(#mask);
 }
@@ -60,36 +228,31 @@ svg > rect {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-
+  font-family: 'Poppins', sans-serif;
   padding: 10px 20px;
   background-color: #1c1c1c;
-  color: rgb(236, 157, 54);
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
   z-index: 0;
-  /* ทำให้ปุ่มอยู่ข้างหลังกล่องแชท */
 }
 
 #navigateButton:hover {
   background-color: #333;
-
-  /* เพิ่ม box-shadow เมื่อ hover โดยเพิ่มความโปร่งแสงและปรับความกว้างและความมืดของเงา */
-  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(236, 157, 54),
-    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(236, 157, 54), 0 0 30px rgb(0, 0, 0),
-    0 0 45px rgb(236, 157, 54);
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0),
+    0 0 45px rgb(255, 255, 255);
 }
 
 .chat-container {
   position: absolute;
   bottom: 25%;
-  /* ปรับค่านี้เพื่อให้ขยับขึ้นไปบนอีก */
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-
   width: 400px;
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #ccc;
@@ -108,8 +271,8 @@ svg > rect {
 }
 
 .message-right {
-  background-color: rgb(236, 157, 54);
-  color: #333;
+  background-color: #333;
+  color: #FFF;
   float: right;
 }
 
@@ -155,11 +318,10 @@ svg > rect {
 
 .social-icon span {
   position: absolute;
-  right: -100px;
+  right: -110px;
   white-space: nowrap;
-  transition: right 0.3s;
-  color: rgb(236, 157, 54);
-  /* สีข้อความเป็นสีเหลือง */
+  transition: right 0.5s;
+  color: #000;
 }
 
 .social-icon:hover {
@@ -183,7 +345,343 @@ svg > rect {
   width: 100px;
   height: 100vh;
   object-fit: cover;
-  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(236, 157, 54),
-    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(236, 157, 54), 0 0 30px rgb(0, 0, 0),
-    0 0 45px rgb(236, 157, 54);
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0),
+    0 0 45px rgb(255, 255, 255);
 }
+
+/* HomePageAction */
+.hello-parent {
+  display: flex;
+  background: #fff;
+  background: -webkit-radial-gradient(#fff, #eaeaea);
+  background: -o-radial-gradient(#fff, #eaeaea);
+  background: -moz-radial-gradient(#fff, #eaeaea);
+  background: radial-gradient(#fff, #eaeaea);
+}
+
+.hello-word {
+  margin: auto;
+}
+
+/* H Animation */
+
+.H-left-stroke {
+  stroke-dasharray: 124px;
+  stroke-dashoffset: 124px;
+  animation: H-left-move 20s ease forwards;
+}
+
+.H-mid-stroke {
+  stroke-dasharray: 37px;
+  stroke-dashoffset: 37px;
+  animation: H-mid-move 9s ease forwards;
+}
+
+.H-right-stroke {
+  stroke-dasharray: 124px;
+  stroke-dashoffset: 124px;
+  animation: H-right-move 13s ease forwards;
+}
+
+@keyframes H-left-move {
+  0% {
+    stroke-dashoffset: 124px;
+  }
+
+  5% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes H-mid-move {
+  0% {
+    stroke-dashoffset: 37px;
+  }
+
+  5% {
+    stroke-dashoffset: 37px;
+  }
+
+  10% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes H-right-move {
+  0% {
+    stroke-dashoffset: 124px;
+  }
+
+  5% {
+    stroke-dashoffset: 124px;
+  }
+
+  10% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+/* E Animation */
+
+.E-left-stroke {
+  stroke-dasharray: 124px;
+  stroke-dashoffset: 124px;
+  animation: E-left-move 20s ease forwards;
+}
+
+.E-top-stroke {
+  stroke-dasharray: 47px;
+  stroke-dashoffset: 47px;
+  animation: E-top-move 10s ease forwards;
+}
+
+.E-mid-stroke {
+  stroke-dasharray: 42px;
+  stroke-dashoffset: 42px;
+  animation: E-mid-move 10s ease forwards;
+}
+
+.E-bottom-stroke {
+  stroke-dasharray: 47px;
+  stroke-dashoffset: 47px;
+  animation: E-bottom-move 10s ease forwards;
+}
+
+@keyframes E-left-move {
+  0% {
+    stroke-dashoffset: 124px;
+  }
+
+  2% {
+    stroke-dashoffset: 124px;
+  }
+
+  6% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes E-top-move {
+  0% {
+    stroke-dashoffset: 47px;
+  }
+
+  6% {
+    stroke-dashoffset: 47px;
+  }
+
+  11% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes E-mid-move {
+  0% {
+    stroke-dashoffset: 42px;
+  }
+
+  8% {
+    stroke-dashoffset: 42px;
+  }
+
+  13% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes E-bottom-move {
+  0% {
+    stroke-dashoffset: 47px;
+  }
+
+  11% {
+    stroke-dashoffset: 47px;
+  }
+
+  16% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+/* L One Animation */
+
+.L-one-long-stroke {
+  stroke-dasharray: 124px;
+  stroke-dashoffset: 124px;
+  animation: L-one-long-move 20s ease forwards;
+}
+
+.L-one-short-stroke {
+  stroke-dasharray: 44px;
+  stroke-dashoffset: 44px;
+  animation: L-one-short-move 10s ease forwards;
+}
+
+@keyframes L-one-long-move {
+  0% {
+    stroke-dashoffset: 124px;
+  }
+
+  2% {
+    stroke-dashoffset: 124px;
+  }
+
+  7% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes L-one-short-move {
+  0% {
+    stroke-dashoffset: 44px;
+  }
+
+  13% {
+    stroke-dashoffset: 44px;
+  }
+
+  18% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+/* L Two Animation */
+
+.L-two-long-stroke {
+  stroke-dasharray: 124px;
+  stroke-dashoffset: 124px;
+  animation: L-two-long-move 20s ease forwards;
+}
+
+.L-two-short-stroke {
+  stroke-dasharray: 44px;
+  stroke-dashoffset: 44px;
+  animation: L-two-short-move 10s ease forwards;
+}
+
+@keyframes L-two-long-move {
+  0% {
+    stroke-dashoffset: 124px;
+  }
+
+  3% {
+    stroke-dashoffset: 124px;
+  }
+
+  8% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes L-two-short-move {
+  0% {
+    stroke-dashoffset: 44px;
+  }
+
+  15% {
+    stroke-dashoffset: 44px;
+  }
+
+  20% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+/* O Animation */
+
+.O-stroke {
+  stroke-dasharray: 302px;
+  stroke-dashoffset: 302px;
+  animation: O-move 20s ease forwards;
+}
+
+@keyframes O-move {
+  0% {
+    stroke-dashoffset: 302px;
+  }
+
+  4% {
+    stroke-dashoffset: 302px;
+  }
+
+  9% {
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+/* Red Dot Animation */
+
+.red-dot {
+  stroke-width: 44px;
+  stroke-linecap: round;
+  animation: red-dot-grow 8s ease-out forwards;
+}
+
+@keyframes red-dot-grow {
+  0% {
+    stroke-width: 0px;
+  }
+
+  15% {
+    stroke-width: 0px;
+  }
+
+  20% {
+    stroke-width: 44px;
+  }
+
+  100% {
+    stroke-width: 44px;
+  }
+}
+
+/* listPage */

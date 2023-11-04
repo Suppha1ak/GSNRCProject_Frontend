@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from 'prop-types';
-import '../../assets/css/style.css'
+import PropTypes from "prop-types";
 
-const videoSrc = new URL("../../assets/video/BlackCar.mp4", import.meta.url).href;
+
+const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
+  .href;
 const LandingPage = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const videoRef = React.useRef(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-          // หากเกิดข้อผิดพลาดในการเล่นวิดีโอ แสดง error ใน console
-          console.error("Video play failed:", error);
+      videoRef.current.play().catch((error) => {
+        // หากเกิดข้อผิดพลาดในการเล่นวิดีโอ แสดง error ใน console
+        console.error("Video play failed:", error);
       });
-  }
+    }
 
     function updateCurrentTime() {
       const now = new Date();
@@ -32,10 +33,10 @@ const LandingPage = ({ onNavigate }) => {
   }, []);
 
   return (
-    <>
+    <div>
       <video className="background-video" autoPlay loop muted>
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
       <header>
         <video ref={videoRef} autoPlay playsInline muted loop preload="auto">
@@ -70,7 +71,9 @@ const LandingPage = ({ onNavigate }) => {
           Please click to enter our page first.
         </div>
       </div>
-      <button id="navigateButton" onClick={onNavigate}>Go to Home Page</button>
+      <button id="navigateButton" onClick={onNavigate}>
+        Go to Home Page
+      </button>
       <div className="social-icons">
         <a href="#" className="social-icon facebook">
           <div className="social-icon-content">
@@ -91,7 +94,7 @@ const LandingPage = ({ onNavigate }) => {
           </div>
         </a>
       </div>
-    </>
+    </div>
   );
 };
 

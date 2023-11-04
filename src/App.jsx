@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
 import Index from "./component/index";
+import "./assets/css/style.css";
 
 const App = () => {
   const [showLandingPage, setShowLandingPage] = useState(() => {
@@ -20,10 +21,12 @@ const App = () => {
 
   return (
     <BrowserRouter>
-        <Index.Navbar />   
+      <Index.Navbar />
         <div className='App'>
           <Routes>
             <Route path='/' element={<Index.HomePage />} />
+            <Route path='/product' element={<Index.ProductPage />} />
+
           </Routes>
         </div>
     </BrowserRouter>
