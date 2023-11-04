@@ -1,4 +1,4 @@
-import LandingPage from "./page/landingPage.controller";
+import LandingPage from "./page/landingPage";
 import HomePage from "./page/homePage"
 import Navbar from "./page/navbar"
 
