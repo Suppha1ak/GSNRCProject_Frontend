@@ -26,8 +26,8 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Index.HomePage />} />
             <Route path='/product' element={<Index.ProductPage />} />
-            <Route path='/add' element={<Index.addPage />} />
-            <Route path='/update' element={<Index.upDate />} />
+            <Route path='/add' element={<Index.CreatePage />} />
+            <Route path='/update' element={<Index.UpdatePage />} />
 
           </Routes>
         </div>

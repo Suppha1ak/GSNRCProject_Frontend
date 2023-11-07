@@ -1,9 +1,9 @@
 import axios from "axios";
 import tokenService from "../token.service";
 
-const URL = import.meta.env.VITE_BASE_URL;
-const Username = import.meta.env.VITE_BASE_USERNAME;
-const Password = import.meta.env.VITE_BASE_PASSWORD;
+const URL = import.meta.env.VITE_GSNRC_URL;
+const Username = import.meta.env.VITE_GSNRC_USERNAME;
+const Password = import.meta.env.VITE_GSNRC_PASSWORD;
 
 const instance = axios.create({
   baseURL: URL,

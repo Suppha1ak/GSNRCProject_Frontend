@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Mitr:wght@200;300&display=swap');
 
 .white-text {
   color: white;
@@ -685,3 +686,46 @@ svg>rect {
 }
 
 /* listPage */
+
+.recomment{
+  width: 100%;
+  background-image: url("https://i1.wp.com/leadright.ae/wp-content/uploads/2017/12/car.gif?fit=1920%2C1080");
+  padding: 21%;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+    0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0),
+    0 0 45px rgb(255, 255, 255);
+  z-index: -1;
+}
+
+.recomment::before {
+  content: "Legendary Motorsport";
+  position: absolute;
+  top: 120px;
+  left: 125px;
+  padding: 10px;
+  color: white;
+  font-size: 50px;
+  font-family: 'Dancing Script', cursive;
+}
+
+@keyframes glow {
+  0% {
+    color: white;
+    text-shadow: 0 0 10px white;
+  }
+  50% {
+    color: rgb(255, 196, 0); 
+    text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold; 
+  }
+  100% {
+    color: white;
+    text-shadow: 0 0 10px white;
+  }
+}
+
+.recomment::before {
+  animation: glow 1s infinite;
+}
