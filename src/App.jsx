@@ -28,7 +28,7 @@ const App = () => {
             <Route path='/product' element={<Index.ProductPage />} />
             <Route path='/add' element={<Index.CreatePage />} />
             <Route path='/update' element={<Index.UpdatePage />} />
-
+            <Route path='/detail/:id' element={<Index.DetailPage />} />
           </Routes>
         </div>
     </BrowserRouter>

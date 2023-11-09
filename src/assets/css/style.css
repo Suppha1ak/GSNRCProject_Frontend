@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Mitr:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Black+Ops+One&family=Dancing+Script&family=Mitr:wght@200;300&family=Roboto:wght@100&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Dancing+Script&family=Mitr:wght@200;300&display=swap');
 
 .white-text {
   color: white;
@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto';
 }
 
 * a {
@@ -688,11 +688,10 @@ svg>rect {
 
 .recomment{
   width: 100%;
-  background-image: url("https://i1.wp.com/leadright.ae/wp-content/uploads/2017/12/car.gif?fit=1920%2C1080");
-  padding: 21%;
-  background-size: 100% 100%;
-  position: fixed;
-  top: 0;
+  background-image: url("https://images.wallpaperscraft.com/image/single/nissan_gtr_nissan_car_200659_1920x1080.jpg");
+  padding: 350px;
+  position: relative;
+  margin-top: -250px;
   box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
     0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0),
     0 0 45px rgb(255, 255, 255);
@@ -700,51 +699,73 @@ svg>rect {
 }
 
 .recomment::before {
-  content: "Legendary Motorsport";
+  content: "LEGENDARY";
   position: absolute;
-  top: 120px;
-  left: 125px;
+  top: 35%;
+  left: 40px;
   padding: 10px;
-  color: white;
-  font-size: 50px;
-  font-family: 'Dancing Script', cursive;
-}
-
-@keyframes glow {
-  0% {
-    color: white;
-    text-shadow: 0 0 10px white;
-  }
-  50% {
-    color: rgb(246, 245, 240); 
-    text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold; 
-  }
-  100% {
-    color: white;
-    text-shadow: 0 0 10px white;
-  }
-}
-
-.recomment::before {
-  animation: glow 1s infinite;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 280px;
+  font-family: 'Black Ops One';
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
 }
 
 .cardproduct {
-  width: 50%;
-  background-color: #FFF;
+  width: 80.8%;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
-  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0),
-  0 0 45px rgb(255, 255, 255);
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
   position: relative;
-  margin-top: 300px;
-  margin-left: 300px;
+  margin-top: -75px;
+  margin-left: 170px;
 }
 
+.cardSpace{
+  margin-top: 50px;
+}
 
+.headercard {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
+.left {
+  width: 50%;
+  margin-top: 15px;
+  margin-left: 30px;
+  color: #FFF;
+}
 
+.right {
+  width: 50%; /* ปรับขนาดตามที่ต้องการ */
+}
+
+.dropdown {
+  padding: 10px;
+}
+
+.custom-dropdown {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-dropdown:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
 
 .cardlist {
   position: relative;
@@ -754,6 +775,8 @@ svg>rect {
   margin: 20px;
   display: inline-block;
   transition: transform 0.3s;
+  margin-top: 20px;
+
 }
 
 .cardlist img {

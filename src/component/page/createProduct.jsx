@@ -2,11 +2,11 @@ import React from 'react'
 import { Axios } from '../../service/auth.context';
 
 
-const addPage = () => {
+const CreateProduct = () => {
   return (
     <div>addPage</div>
     
   )
 }
 
-export default addPage;
+export default CreateProduct;

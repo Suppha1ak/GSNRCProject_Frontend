@@ -1,10 +1,10 @@
 import React from 'react'
 import { Axios } from 'axios';
 
-const upDate = () => {
+const UpdatePage = () => {
   return (
     <div>upDate</div>
   )
 }
 
-export default upDate;
+export default UpdatePage;

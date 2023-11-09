@@ -4,6 +4,7 @@ import ProductPage from "./page/productPage"
 import Navbar from "./page/navbar"
 import CreatePage from "./page/createProduct";
 import UpdatePage from "./page/updatePage";
+import DetailPage from "./page/detailPage"
 
 export default  {
                     LandingPage,
@@ -12,4 +13,5 @@ export default  {
                     ProductPage,
                     CreatePage,
                     UpdatePage,
+                    DetailPage,
                 }

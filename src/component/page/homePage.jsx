@@ -17,7 +17,7 @@ const HomePage = () => {
               className="hello-word"
               width="365"
               height="365"
-              viewBox="750 -235 800 800"
+              viewBox="920 -235 800 800"
             >
               <g id="H-letter">
                 <line
