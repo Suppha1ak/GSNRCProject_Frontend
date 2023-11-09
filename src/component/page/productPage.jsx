@@ -67,7 +67,7 @@ const ListPage = () => {
               {list.map((item, index) => (
                 <div className="cardlist" key={index}>
                   <Link to={`/detail/${item.id}`}>
-                    <img src={item.imageFirst} alt="Product" />
+                    <img src={item.image} alt="Product" />
                     <div className="brand">{item.brand}</div>
                     <div className="price">{item.price}$</div>
                   </Link>
