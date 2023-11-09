@@ -5,6 +5,8 @@ import Navbar from "./page/navbar"
 import CreatePage from "./page/createProduct";
 import UpdatePage from "./page/updatePage";
 import DetailPage from "./page/detailPage"
+import AboutPage from "./page/aboutPage"
+import ContactPage from "./page/contactPage"
 
 export default  {
                     LandingPage,
@@ -14,4 +16,6 @@ export default  {
                     CreatePage,
                     UpdatePage,
                     DetailPage,
+                    AboutPage,
+                    ContactPage,
                 }
