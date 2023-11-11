@@ -18,7 +18,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    const TK = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk5NzEyOTI3LCJleHAiOjE2OTk3MTY1Mjd9.Z7DME6JxZ9MXxuhUnKmk2WQ6a8TzaYBQttqQXMXD6zM";
+    const TK = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk5NzE3NTQ5LCJleHAiOjE2OTk3MjExNDl9.z-8St0_RdlPGHIIvYtbEA8RAVjHfSDfyQy--HEUzcuY";
     if (TK) {
       config.headers["x-access-token"] = TK;
     }
