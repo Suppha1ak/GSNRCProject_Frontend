@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Axios } from "../../service/auth.context";
 import Swal from "sweetalert2";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+
 
 const DetailPage = () => {
   const [detaillist, setDetaillist] = useState({
@@ -73,6 +74,9 @@ const DetailPage = () => {
                 >
                   จองทันที!
                 </button>
+                
+                <Link to={`/update/${detaillist.id}`} className="warning"  > แก้ไข </Link>
+
               </div>
             </div>
           </div>
