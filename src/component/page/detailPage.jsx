@@ -63,7 +63,6 @@ const DetailPage = () => {
             </div>
             <div className="detail-side">
               <div className="detail">
-                {/* ข้อมูลรายละเอียด */}
                 <h2>{detaillist.brand}</h2>
                 <p>รุ่น : {detaillist.model}</p>
                 <p>สี : {detaillist.primaryColor}</p>
