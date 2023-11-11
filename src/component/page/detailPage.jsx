@@ -52,6 +52,34 @@ const DetailPage = () => {
     });
   };
 
+  const handleButtonDelete = async (id) => {
+    try {
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      });
+  
+      if (result.isConfirmed) {
+        await Axios.delete(`/Carcenters/${id}`);
+        console.log(id);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        );
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   return (
     <div>
       {loading ? (
@@ -76,6 +104,10 @@ const DetailPage = () => {
                 </button>
                 
                 <Link to={`/update/${detaillist.id}`} className="warning"  > แก้ไข </Link>
+
+                <button className="danger" onClick={handleButtonDelete} >
+                  ลบ
+                </button>
 
               </div>
             </div>

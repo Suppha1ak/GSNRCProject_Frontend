@@ -36,9 +36,7 @@ const UpdatePage = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      
       await Axios.put(`/Carcenters/${id}`, Carcenters);
-      setLoading (true);
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -81,8 +79,9 @@ const UpdatePage = () => {
                         type="text"
                         className="form-control"
                         name="brand"
-                        placeholder={Carcenters.brand}
+                        placeholder="brand"
                         onChange={handleChange}
+                        value={Carcenters.brand}
                       />
                     </div>
 
@@ -135,8 +134,8 @@ const UpdatePage = () => {
                       <input
                         type="text"
                         className="form-control"
-                        name="primarycolor"
-                        placeholder="primarycolor"
+                        name="primaryColor"
+                        placeholder="primaryColor"
                         onChange={handleChange}
                         value={Carcenters.primaryColor}
                       />

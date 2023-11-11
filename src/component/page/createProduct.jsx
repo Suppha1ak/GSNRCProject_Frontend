@@ -116,8 +116,8 @@ const CreateProduct = () => {
                       <input
                         type="text"
                         className="form-control"
-                        name="primarycolor"
-                        placeholder="primarycolor"
+                        name="primaryColor"
+                        placeholder="primaryColor"
                         onChange={handleChange}
                       />
                     </div>
