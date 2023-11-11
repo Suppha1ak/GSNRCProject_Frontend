@@ -26,7 +26,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Index.HomePage />} />
             <Route path='/product' element={<Index.ProductPage />} />
-            <Route path='/add' element={<Index.CreatePage />} />
+            <Route path='/create' element={<Index.CreatePage />} />
             <Route path='/update' element={<Index.UpdatePage />} />
             <Route path='/detail/:id' element={<Index.DetailPage />} />
             <Route path='/about' element={<Index.AboutPage />} />
