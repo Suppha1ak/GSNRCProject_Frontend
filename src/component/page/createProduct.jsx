@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Axios } from "../../service/auth.context";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreateProduct = () => {
   const [Carcenters, setCarcenters] = useState({
-    name: "",
-    type: "",
-    img: "",
+    brand: "",
+    model: "",
+    image:"",
+    primaryColor: "",
+    price:"",
   });
   const navigate = useNavigate();
   const [error, setError] = useState(false);
@@ -21,7 +23,8 @@ const CreateProduct = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await Axios.post(`/Carcenters`, Carcenters);
+      await Axios.post(`/Carcenters/${id}`, Carcenters);
+      setLoading (true);
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -29,19 +32,7 @@ const CreateProduct = () => {
     }
   };
 
-  const handleClear = (e) => {
-    setCarcenters({
-      brand: "",
-      model: "",
-      price: "",
-      imageFirst: "",
-      imageSecond: "",
-      imageThird: "",
-      firstprimarycolor: "",
-      secondprimarycolor: "",
-      thirdprimarycolor: "",
-    });
-    setError(false);
+  const handleCancle = (e) => {
     navigate("/");
   };
 
@@ -131,10 +122,10 @@ const CreateProduct = () => {
                       />
                     </div>
 
-
+    
                     <button to="" className="success" onClick={handleClick} > Create </button>
                     {""}
-                    <button to="/" className="danger" onClick={handleClear} > Cancle </button>
+                    <button to="/" className="danger" onClick={handleCancle} > Cancle </button>
                   </form>
                 </div>
               </div>

@@ -946,3 +946,19 @@ margin-top: 25px;
   margin-left: 50px;
 }
 
+.warning{
+  padding: 10px 15px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(255, 247, 0);
+  color: #000;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-top: 150px;
+  margin-left: 130px;
+}
+
