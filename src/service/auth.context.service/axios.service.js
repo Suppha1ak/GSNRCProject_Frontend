@@ -18,7 +18,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    const TK = tokenService.getLocalAccessToken();
+    const TK = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk5NzAxMTgzLCJleHAiOjE2OTk3MDQ3ODN9.GuFCto3jEDvH1lx8s7jrFiAuvnBFcybMEFNqh9eBOrU";
     if (TK) {
       config.headers["x-access-token"] = TK;
     }
