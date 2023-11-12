@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
-import Index from "./component/index";
+import LandingPage from "./component/page/landingPage";
+import HomePage from "./component/page/homePage"
+import ProductPage from "./component/page/productPage"
+import Navbar from "./component/page/navbar"
+import CreatePage from "./component/page/createProduct";
+import UpdatePage from "./component/page/updatePage";
+import DetailPage from "./component/page/detailPage"
+import AboutPage from "./component/page/aboutPage"
+import ContactPage from "./component/page/contactPage"
 import "./assets/css/style.css";
 
 const App = () => {
@@ -10,7 +18,7 @@ const App = () => {
 
   if (showLandingPage) {
     return (
-      <Index.LandingPage
+      <LandingPage
         onNavigate={() => {
           sessionStorage.setItem("visitedBefore", "true");
           setShowLandingPage(false);
@@ -21,17 +29,16 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Index.Navbar />
+      <Navbar />
         <div className='App'>
           <Routes>
-            <Route path='/' element={<Index.HomePage />} />
-            <Route path='/product' element={<Index.ProductPage />} />
-            <Route path='/create' element={<ProtectedRoute> <Index.CreatePage /> </ProtectedRoute> } />
-            <Route path='/update/:id' element={<Index.UpdatePage />} />
-            <Route path='/detail/:id' element={<Index.DetailPage />} />
-            <Route path='/about' element={<Index.AboutPage />} />
-            <Route path='/contact' element={<Index.ContactPage />} />
-            <Route path='/search' element={<Index.Search />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/product' element={<ProductPage />} />
+            <Route path='/create' element={ <CreatePage /> } />
+            <Route path='/update/:id' element={<UpdatePage />} />
+            <Route path='/detail/:id' element={<DetailPage />} />
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/contact' element={<ContactPage />} />
           </Routes>
         </div>
     </BrowserRouter>

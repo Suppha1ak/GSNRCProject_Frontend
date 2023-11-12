@@ -7,7 +7,7 @@ import animationLoading from "../../assets/videoJSON/loadingPage.json";
 const ListPage = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchText, setsearchText] = useState([]);
+  const [searchText, setsearchText] = useState("");
 
   useEffect(() => {
     const fetchlist = async () => {

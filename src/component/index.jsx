@@ -7,8 +7,6 @@ import UpdatePage from "./page/updatePage";
 import DetailPage from "./page/detailPage"
 import AboutPage from "./page/aboutPage"
 import ContactPage from "./page/contactPage"
-import Search from "./page/search";
-import ProtectedRoute from "./page/ProtectedRoute";
 
 export default  {
                     LandingPage,
@@ -20,5 +18,4 @@ export default  {
                     DetailPage,
                     AboutPage,
                     ContactPage,
-                    Search,
                 }
