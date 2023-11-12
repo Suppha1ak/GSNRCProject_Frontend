@@ -23,8 +23,7 @@ const CreateProduct = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await Axios.post(`/Carcenters/${id}`, Carcenters);
-      setLoading (true);
+      await Axios.post(`/Carcenters`, Carcenters);
       navigate("/");
     } catch (error) {
       console.error(error);

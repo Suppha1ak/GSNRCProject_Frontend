@@ -31,6 +31,7 @@ const App = () => {
             <Route path='/detail/:id' element={<Index.DetailPage />} />
             <Route path='/about' element={<Index.AboutPage />} />
             <Route path='/contact' element={<Index.ContactPage />} />
+            <Route path='/search' element={<Index.Search />} />
           </Routes>
         </div>
     </BrowserRouter>

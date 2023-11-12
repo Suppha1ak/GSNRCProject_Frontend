@@ -7,7 +7,7 @@ import animationLoading from "../../assets/videoJSON/loadingPage.json";
 const ListPage = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("Filters");
+  const [selectedOption, setSelectedOption] = useState("search");
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
@@ -26,6 +26,7 @@ const ListPage = () => {
     };
     fetchlist();
   }, []);
+
 
   return (
     <div>
@@ -47,14 +48,14 @@ const ListPage = () => {
                     value={selectedOption}
                     onChange={handleSelectChange}
                   >
-                    <option
-                      value="Filters"
+
+                    <option 
+                      value="search"
                       style={{
                         display:
-                          selectedOption === "Filters" ? "none" : "block",
-                      }}
-                    >
-                      Filters
+                          selectedOption === "search" ? "none" : "block",
+                      }}    >
+                      search
                     </option>
                     <option value="Toyota">Toyota</option>
                     <option value="Nissan">Nissan</option>
@@ -81,6 +82,7 @@ const ListPage = () => {
       )}
     </div>
   );
-};
+      };
+
 
 export default ListPage;

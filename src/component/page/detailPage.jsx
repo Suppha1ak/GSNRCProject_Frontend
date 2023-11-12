@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link , useNavigate } from "react-router-dom";
 import { Axios } from "../../service/auth.context";
 import Swal from "sweetalert2";
 import Loading from "../../isLoading/loadingPage";
@@ -15,6 +15,7 @@ const DetailPage = () => {
     primaryColor: "",
   });
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const { id } = useParams();
   console.log(id);
 
@@ -52,7 +53,7 @@ const DetailPage = () => {
     });
   };
 
-  const handleButtonDelete = async (id) => {
+  const handleButtonDelete = async () => {
     try {
       const result = await Swal.fire({
         title: 'Are you sure?',
@@ -67,12 +68,12 @@ const DetailPage = () => {
       if (result.isConfirmed) {
         await Axios.delete(`/Carcenters/${id}`);
         console.log(id);
+        navigate("/");
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
           'success'
         );
-        window.location.reload();
       }
     } catch (error) {
       console.error(error);
@@ -105,9 +106,7 @@ const DetailPage = () => {
                 
                 <Link to={`/update/${detaillist.id}`} className="warning"  > แก้ไข </Link>
 
-                <button className="danger" onClick={handleButtonDelete} >
-                  ลบ
-                </button>
+                <button className="danger" onClick={handleButtonDelete}> ลบ </button>
 
               </div>
             </div>
