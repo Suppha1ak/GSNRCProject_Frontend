@@ -7,11 +7,7 @@ import animationLoading from "../../assets/videoJSON/loadingPage.json";
 const ListPage = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("search");
-
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  const [searchText, setsearchText] = useState([]);
 
   useEffect(() => {
     const fetchlist = async () => {
@@ -27,7 +23,6 @@ const ListPage = () => {
     fetchlist();
   }, []);
 
-
   return (
     <div>
       {loading ? (
@@ -41,39 +36,34 @@ const ListPage = () => {
                 <h1>NOVIDADES</h1>
               </div>
               <div className="right">
-                <div className="dropdown">
-                  <select
-                    id="cars"
-                    className="custom-dropdown"
-                    value={selectedOption}
-                    onChange={handleSelectChange}
-                  >
-
-                    <option 
-                      value="search"
-                      style={{
-                        display:
-                          selectedOption === "search" ? "none" : "block",
-                      }}    >
-                      search
-                    </option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Nissan">Nissan</option>
-                    <option value="Other">อื่น ๆ</option>
-                  </select>
-                </div>
+                <input
+                  type="text"
+                  className="input-style"
+                  name="name"
+                  placeholder="Search brand"
+                  value={searchText}
+                  onChange={(event) => {
+                    setsearchText(event.target.value);
+                  }}
+                />
               </div>
             </div>
             <div className="cardSpace">
-              {list.map((item, index) => (
-                <div className="cardlist" key={index}>
-                  <Link to={`/detail/${item.id}`}>
-                    <img src={item.image} alt="Product" />
-                    <div className="brand">{item.brand}</div>
-                    <div className="price">{item.price}$</div>
-                  </Link>
-                </div>
-              ))}
+              {list
+                .filter((item) => {
+                  return item.brand.toLowerCase().startsWith(searchText.toLowerCase());
+                })
+                .map((item) => {
+                  return (
+                    <div className="cardlist" key={item.id}>
+                      <Link to={`/detail/${item.id}`}>
+                        <img src={item.image} alt="Product" />
+                        <div className="brand">{item.brand}</div>
+                        <div className="price">{item.price}$</div>
+                      </Link>
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -82,7 +72,6 @@ const ListPage = () => {
       )}
     </div>
   );
-      };
-
+};
 
 export default ListPage;

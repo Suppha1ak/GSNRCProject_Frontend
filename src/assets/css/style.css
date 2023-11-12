@@ -962,3 +962,15 @@ margin-top: 25px;
   margin-left: 130px;
 }
 
+.input-style {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  outline: none; 
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #007bff;
+  }
+  margin-top: 10px;
+  margin-left: 500px;
+}
