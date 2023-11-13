@@ -117,7 +117,7 @@ const Signup = () => {
                       </button>
                       <li>
                         <Link
-                          to="/Signin"
+                          to="/login"
                           className="btn btn-primary form-control mt-2"
                         >
                           <h3>Signin</h3>

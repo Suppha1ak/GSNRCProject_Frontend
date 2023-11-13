@@ -1,4 +1,4 @@
-import { Axios } from "../auth.context";
+import Axios from "./axios.service";
 
 const login = async (username, password) => {
     console.log(username);

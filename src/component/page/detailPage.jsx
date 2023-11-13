@@ -68,7 +68,7 @@ const DetailPage = () => {
       if (result.isConfirmed) {
         await Axios.delete(`/Carcenters/${id}`);
         console.log(id);
-        navigate("/");
+        navigate("/product");
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',

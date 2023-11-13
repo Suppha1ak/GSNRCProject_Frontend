@@ -890,11 +890,14 @@ margin-top: 25px;
   outline: none;
   transition: background-color 0.3s;
   margin-top: 50px;
+  margin-left: 60px;
 }
 
 .styledButtondetail:hover{
   box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
   0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: darkblue;
+  color: #FFF;
 }
 
 .createtext{
@@ -922,8 +925,8 @@ margin-top: 25px;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #009819;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: none;
   outline: none;
   transition: background-color 0.3s;
@@ -938,12 +941,12 @@ margin-top: 25px;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: rgb(255, 0, 0);
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: none;
   outline: none;
   transition: background-color 0.3s;
-  margin-left: 130px;
+  margin-left: 50px;
 }
 
 .warning{
@@ -953,13 +956,33 @@ margin-top: 25px;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: rgb(255, 247, 0);
+  background-color: #fff;
   color: #000;
   border: none;
   outline: none;
   transition: background-color 0.3s;
-  margin-top: 150px;
-  margin-left: 130px;
+  margin-left: 50px;
+}
+
+.danger:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: darkred;
+  color: #FFF;
+}
+
+.warning:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: goldenrod;
+  color: #FFF;
+}
+
+.success:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: limegreen;
+  color: #FFF;
 }
 
 .input-style {
