@@ -34,10 +34,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="card-create">
+    <div className="card_sign">
       <div className="image-side">
         <img
-          src="https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src="https://as2.ftcdn.net/v2/jpg/01/12/09/17/1000_F_112091769_vWEmDiwVIpO4H1plGuhYgnmduTuiGUh2.jpg"
           alt="Card Image"
         />
       </div>

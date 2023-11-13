@@ -1033,3 +1033,18 @@ margin-top: 25px;
   margin-top: 10px;
   margin-left: 120px;
 }
+
+.card_sign {
+  display: flex;
+  max-width: 100%;
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+}
