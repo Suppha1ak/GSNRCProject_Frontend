@@ -4,9 +4,12 @@ import Axios from "../../service/auth.context.service/axios.service";
 import Swal from "sweetalert2";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+import { useAuth } from "../../service/auth.context.service/auth.context";
+
 
 
 const DetailPage = () => {
+  const { token , roles } = useAuth();
   const [detaillist, setDetaillist] = useState({
     brand: "",
     model: "",
@@ -64,8 +67,8 @@ const DetailPage = () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       });
-  
-      if (result.isConfirmed) {
+      
+      if (result.isConfirmed) {     
         await Axios.delete(`/Carcenters/${id}`);
         console.log(id);
         navigate("/product");
@@ -97,17 +100,24 @@ const DetailPage = () => {
                 <p>รุ่น : {detaillist.model}</p>
                 <p>สี : {detaillist.primaryColor}</p>
                 <p>ราคา : {detaillist.price}$</p>
-                <button
+                {token && (
+                  <button
                   className="styledButtondetail"
                   onClick={handleButtonClick}
-                >
-                  จองทันที!
-                </button>
-                
-                <Link to={`/update/${detaillist.id}`} className="warning"  > แก้ไข </Link>
-
-                <button className="danger" onClick={handleButtonDelete}> ลบ </button>
-
+                  >
+                    จองทันที!
+                  </button>
+                )}
+                {JSON.stringify(roles) === JSON.stringify(['ADMIN']) && (
+                  <>
+                    <Link to={`/update/${detaillist.id}`} className="warning">
+                      แก้ไข
+                    </Link>
+                    <button className="danger" onClick={handleButtonDelete}>
+                      ลบ
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>

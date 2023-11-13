@@ -9,7 +9,7 @@ const ListPage = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setsearchText] = useState("");
-  const { isLogged, roles } = useAuth();
+  const { token, roles } = useAuth();
 
   useEffect(() => {
     const fetchlist = async () => {
@@ -38,7 +38,7 @@ const ListPage = () => {
               <div className="left">
                 <h1>NOVIDADES</h1>
               </div>
-              {isLogged && roles.includes("ADMIN") ? (
+              {token && roles.includes("ADMIN") ? (
                 <div className="right">
                   <input
                     type="text"

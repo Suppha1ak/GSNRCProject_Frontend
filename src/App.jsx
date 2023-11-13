@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
 import { AuthProvider } from "./service/auth.context.service/auth.context";
-import {ProtectRoute} from './service/auth.context.service/protectedRoute'
+import ProtectRoute from './service/auth.context.service/protectedRoute'
 import LandingPage from "./component/page/landingPage";
 import HomePage from "./component/page/homePage"
 import ProductPage from "./component/page/productPage"
@@ -13,6 +13,7 @@ import AboutPage from "./component/page/aboutPage"
 import ContactPage from "./component/page/contactPage"
 import Login from "./component/page/signInPage"
 import SignUo from "./component/page/signUpPage"
+import Profile from "./component/page/profilePage"
 import "./assets/css/style.css";
 
 const App = () => {
@@ -40,13 +41,14 @@ const App = () => {
               <Route path='/' element={<HomePage />} />
               <Route path='/product' element={<ProductPage />} />
               {/* <Route path='/1' element={<ProtectRoute />} /> */}
-              <Route path='/create' element={<ProtectRoute rolesToken={['ADMIN']}><CreatePage /></ProtectRoute> } />
-              <Route path='/update/:id' element={<UpdatePage />} />
-              <Route path='/detail/:id' element={<DetailPage />} />
+              <Route path='/create' element={<ProtectRoute rolesType={['ADMIN']}><CreatePage /></ProtectRoute> } />
+              <Route path='/update/:id' element={<ProtectRoute rolesType={['ADMIN']}><UpdatePage /></ProtectRoute>} />
+              <Route path='/detail/:id' element={<ProtectRoute><DetailPage /></ProtectRoute>} />
               <Route path='/about' element={<AboutPage />} />
               <Route path='/contact' element={<ContactPage />} />
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<SignUo />} />
+              <Route path='/profile' element={<ProtectRoute><Profile /></ProtectRoute>} />
             </Routes>
           </div>
         </AuthProvider>

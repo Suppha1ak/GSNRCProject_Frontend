@@ -1,18 +1,21 @@
-import { useState, useEffect }  from 'react'
+import { useState, useEffect } from "react";
 import Axios from "../../service/auth.context.service/axios.service";
 import { useNavigate, useParams } from "react-router-dom";
+import Loading from "../../isLoading/loadingPage";
+import animationLoading from "../../assets/videoJSON/loadingPage.json";
 
 const UpdatePage = () => {
   const [Carcenters, setCarcenters] = useState({
     brand: "",
     model: "",
-    image:"",
+    image: "",
     primaryColor: "",
-    price:"",
+    price: "",
   });
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -36,8 +39,9 @@ const UpdatePage = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await Axios.put(`/Carcenters/${id}`, Carcenters);
-      navigate("/");
+      navigate("/product");
     } catch (error) {
       console.error(error);
       setError(true);
@@ -48,114 +52,126 @@ const UpdatePage = () => {
     navigate("/product");
   };
 
-  
-
   return (
-    <div className="card-create">
-      <div className="image-side">
-        <img
-          src={Carcenters.image}
-          alt="Card Image"
-        />
-      </div>
-      <div className="detail-side">
-        <div className="detail">
-          <div className="container">
-            <h1 className="createtext">GSNRCThailand</h1>
-            <div className="row form">
-              <div className="col-6 justify-cintent-center">
-                <h5 className="card-header"> CreateProduct Cars</h5>
-                <div className="error">
-                  {error && "Something went wrong !!"}
-                </div>
-                <div className="card-body">
-                
-                  <form>
-                    <div className="from-group">
-                      <label htmlFor="name" className="createtext">
-                      Brand Car 
-                      </label> <br/>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="brand"
-                        placeholder="brand"
-                        onChange={handleChange}
-                        value={Carcenters.brand}
-                      />
+    <div>
+      {loading ? (
+        <Loading animation={animationLoading} />
+      ) : (
+        <div className="card-create">
+          <div className="image-side">
+            <img src={Carcenters.image} alt="Card Image" />
+          </div>
+          <div className="detail-side">
+            <div className="detail">
+              <div className="container">
+                <h1 className="createtext">GSNRCThailand</h1>
+                <div className="row form">
+                  <div className="col-6 justify-cintent-center">
+                    <h5 className="card-header"> CreateProduct Cars</h5>
+                    <div className="error">
+                      {error && "Something went wrong !!"}
                     </div>
+                    <div className="card-body">
+                      <form>
+                        <div className="from-group">
+                          <label htmlFor="name" className="createtext">
+                            Brand Car
+                          </label>{" "}
+                          <br />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="brand"
+                            placeholder="brand"
+                            onChange={handleChange}
+                            value={Carcenters.brand}
+                          />
+                        </div>
 
-                    <div className="from-group">
-                      <label htmlFor="name" className="createtext">
-                      Model Car
-                      </label> <br/>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="model"
-                        placeholder="model"
-                        onChange={handleChange}
-                        value={Carcenters.model}
-                      />
+                        <div className="from-group">
+                          <label htmlFor="name" className="createtext">
+                            Model Car
+                          </label>{" "}
+                          <br />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="model"
+                            placeholder="model"
+                            onChange={handleChange}
+                            value={Carcenters.model}
+                          />
+                        </div>
+
+                        <div className="from-group">
+                          <label htmlFor="name" className="createtext">
+                            Price Car
+                          </label>{" "}
+                          <br />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="price"
+                            placeholder="price"
+                            onChange={handleChange}
+                            value={Carcenters.price}
+                          />
+                        </div>
+
+                        <div className="from-group">
+                          <label htmlFor="name" className="createtext">
+                            Image
+                          </label>{" "}
+                          <br />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="image"
+                            placeholder="image"
+                            onChange={handleChange}
+                            value={Carcenters.image}
+                          />
+                        </div>
+
+                        <div className="from-group">
+                          <label htmlFor="name" className="createtext">
+                            Primarycolor Car
+                          </label>{" "}
+                          <br />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="primaryColor"
+                            placeholder="primaryColor"
+                            onChange={handleChange}
+                            value={Carcenters.primaryColor}
+                          />
+                        </div>
+
+                        <button to="" className="warning" onClick={handleClick}>
+                          {" "}
+                          Update{" "}
+                        </button>
+                        {""}
+                        <button
+                          to="/"
+                          className="danger"
+                          onClick={handleCancle}
+                        >
+                          {" "}
+                          Cancle{" "}
+                        </button>
+                      </form>
                     </div>
-
-                    <div className="from-group">
-                      <label htmlFor="name" className="createtext">
-                      Price Car
-                      </label> <br/>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="price"
-                        placeholder="price"
-                        onChange={handleChange}
-                        value={Carcenters.price}
-                      />
-                    </div>
-
-                    <div className="from-group">
-                      <label htmlFor="name" className="createtext">
-                      Image
-                      </label> <br/>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="image"
-                        placeholder="image"
-                        onChange={handleChange}
-                        value={Carcenters.image}
-                      />
-                    </div>
-
-                    <div className="from-group">
-                      <label htmlFor="name" className="createtext">
-                      Primarycolor Car
-                      </label> <br/>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="primaryColor"
-                        placeholder="primaryColor"
-                        onChange={handleChange}
-                        value={Carcenters.primaryColor}
-                      />
-                    </div>
-
-    
-                    <button to="" className="warning" onClick={handleClick} > Update </button>
-                    {""}
-                    <button to="/" className="danger" onClick={handleCancle} > Cancle </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
-
-
 
 export default UpdatePage;

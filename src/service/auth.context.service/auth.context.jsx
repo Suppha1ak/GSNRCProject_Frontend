@@ -2,38 +2,23 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
 } from "react";
 
 const AuthContext = createContext();
 
-
 export const AuthProvider = ({ children }) => {
-  const [isLogged, setIsLogged] = useState(false);
-  const [username, setUsername] = useState("");
-  const [roles, setRoles] = useState(null);
+  const userData = JSON.parse(localStorage.getItem("user"));
+  const userToken = JSON.parse(localStorage.getItem("token"));
 
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const storedUserData = JSON.parse(localStorage.getItem("user") || "{}");
-    const storedUsername = storedUserData.username;
-    const storedRoles = storedUserData.roles;
-    
-    if (token && storedUsername) {
-      setIsLogged(true);
-      setUsername(storedUsername);
-      setRoles(storedRoles);
-    } else {
-      setIsLogged(false);
-      setUsername("");
-      setRoles(null);
-    }    
-  }, []);
+  const [username, setUsername] = useState(userData ? userData.username : "");
+  const [roles, setRoles] = useState(userData ? userData.roles : "");
+  const [token, setToken] = useState(userToken ? userToken : "");
+
 
   return (
     <AuthContext.Provider
-      value={{ isLogged, setIsLogged, username, setUsername, roles, setRoles }}
+      value={{ username, setUsername, roles, setRoles , token, setToken }}
     >
       {children}
     </AuthContext.Provider>

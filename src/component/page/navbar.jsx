@@ -5,17 +5,12 @@ const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
   .href;
 
 const Navbar = () => {
-  const { isLogged, username, setIsLogged, setUsername, setRoles } = useAuth();
+  const { token , username} = useAuth();
 
   const handleLogout = () => {
-    // Clear user data when logging out
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-
-    // Reset context values
-    setIsLogged(false);
-    setUsername("");
-    setRoles(null);
+    window.location.reload();
   };
 
   return (
@@ -25,7 +20,7 @@ const Navbar = () => {
         Your browser does not support the video tag.
       </video>
       <div className="navBar">
-        {isLogged ? (
+        {token ? (
           <h2 className="white-text">Hi, {username}</h2>
         ) : (
           <h2></h2>
@@ -43,7 +38,7 @@ const Navbar = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          {isLogged ? (
+          {token ? (
             <li>
               <button onClick={handleLogout} className="Logout">Logout</button>
             </li>

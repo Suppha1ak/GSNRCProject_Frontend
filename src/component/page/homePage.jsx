@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../service/auth.context.service/auth.context";
 
 const HomePage = () => {
-  const { isLogged } = useAuth();
+  const { token } = useAuth();
 
   return (
     <div className="content">
@@ -182,7 +181,7 @@ const HomePage = () => {
             <h2>Product</h2>
           </div>
         </Link>
-        {isLogged ? (
+        {token ? (
           <Link to="/profile"> {/* ให้เปลี่ยน "/profile" เป็น path ที่คุณต้องการ */}
             <div className="box2">
               <h2>Profile</h2>
