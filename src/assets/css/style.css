@@ -742,6 +742,8 @@ svg>rect {
 
 .right {
   width: 50%; /* ปรับขนาดตามที่ต้องการ */
+  margin-left: 800px;
+  display: inline-block;
 }
 
 .dropdown {
@@ -934,6 +936,21 @@ margin-top: 25px;
   margin-left: 130px;
 }
 
+.successCreate{
+  padding: 10px 15px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
 .danger{
   padding: 10px 15px;
   font-size: 16px;
@@ -985,6 +1002,13 @@ margin-top: 25px;
   color: #FFF;
 }
 
+.successCreate:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: limegreen;
+  color: #FFF;
+}
+
 .input-style {
   padding: 10px;
   border: 1px solid #ccc;
@@ -995,5 +1019,17 @@ margin-top: 25px;
     border-color: #007bff;
   }
   margin-top: 10px;
-  margin-left: 500px;
+}
+
+.input-styleNoAdmin {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  outline: none; 
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #007bff;
+  }
+  margin-top: 10px;
+  margin-left: 120px;
 }

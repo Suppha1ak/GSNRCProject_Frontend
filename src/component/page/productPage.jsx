@@ -3,14 +3,17 @@ import Axios from "../../service/auth.context.service/axios.service";
 import { Link } from "react-router-dom";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+import { useAuth } from "../../service/auth.context.service/auth.context";
 
 const ListPage = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setsearchText] = useState("");
+  const { isLogged, roles } = useAuth();
 
   useEffect(() => {
     const fetchlist = async () => {
+      console.log(roles);
       try {
         const res = await Axios.get(`/Carcenters`);
         setList(res.data);
@@ -35,18 +38,34 @@ const ListPage = () => {
               <div className="left">
                 <h1>NOVIDADES</h1>
               </div>
-              <div className="right">
-                <input
-                  type="text"
-                  className="input-style"
-                  name="name"
-                  placeholder="Search brand"
-                  value={searchText}
-                  onChange={(event) => {
-                    setsearchText(event.target.value);
-                  }}
-                />
+              {isLogged && roles.includes("ADMIN") ? (
+                <div className="right">
+                  <input
+                    type="text"
+                    className="input-style"
+                    name="name"
+                    placeholder="Search brand"
+                    value={searchText}
+                    onChange={(event) => {
+                      setsearchText(event.target.value);
+                    }}
+                  />
+                  <Link to="/create"><button className="successCreate">Create new!</button></Link>
               </div>
+              ) : (
+                <div className="right">
+                  <input
+                    type="text"
+                    className="input-styleNoAdmin"
+                    name="name"
+                    placeholder="Search brand"
+                    value={searchText}
+                    onChange={(event) => {
+                      setsearchText(event.target.value);
+                    }}
+                  />
+                </div>
+              )}
             </div>
             <div className="cardSpace">
               {list

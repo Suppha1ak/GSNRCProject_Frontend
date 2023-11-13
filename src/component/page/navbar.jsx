@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../service/auth.context.service/auth.context";
 const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
   .href;
 
 const Navbar = () => {
+  const { isLogged, username } = useAuth();
   return (
     <div>
       <video className="bg-video" autoPlay loop muted>
@@ -10,7 +12,9 @@ const Navbar = () => {
         Your browser does not support the video tag.
       </video>
       <div className="navBar">
-          <h2 className="white-text">Hi , Username</h2>
+        {isLogged ? (
+          <h2 className="white-text">Hi, {username}</h2>
+        ):<h2></h2>}
         <ul>
           <li>
             <Link to="/">Home</Link>

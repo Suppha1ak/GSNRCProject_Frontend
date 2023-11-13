@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../service/auth.context.service/auth.context";
 
 const HomePage = () => {
+  const { isLogged } = useAuth();
+
   return (
     <div className="content">
       <div className="NameSpace" style={{ width: "50%" }}>
@@ -178,11 +181,19 @@ const HomePage = () => {
             <h2>Product</h2>
           </div>
         </Link>
-        <Link to="/login">
-          <div className="box2">
-            <h2>Login</h2>
-          </div>
-        </Link>
+        {isLogged ? (
+          <Link to="/profile"> {/* ให้เปลี่ยน "/profile" เป็น path ที่คุณต้องการ */}
+            <div className="box2">
+              <h2>Profile</h2>
+            </div>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <div className="box2">
+              <h2>Login</h2>
+            </div>
+          </Link>
+        )}
         <Link to="/about">
           <div className="box3">
             <h2>About</h2>

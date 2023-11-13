@@ -1,8 +1,6 @@
 import Axios from "./axios.service";
 
 const login = async (username, password) => {
-    console.log(username);
-    console.log(password);
   const res = await Axios.post(`/api/auth/signIn`, { username, password });
   if (res.data.accessToken) {
     localStorage.setItem("user", JSON.stringify(res.data));

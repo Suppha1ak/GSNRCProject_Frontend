@@ -22,6 +22,7 @@ const Signin = () => {
         console.log(signin.password);
       await SigninAndSignup.login(signin.username, signin.password);
       navigate("/");
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }

@@ -35,7 +35,7 @@ instance.interceptors.response.use(
   },
   async (err) => {
     const originalConfig = err.config;
-    if (originalConfig.url !== "/api/auth/signin" && err.response) {
+    if (originalConfig.url !== "/api/auth/signIn" && err.response) {
       if (err.response.status === 401 && !originalConfig._retry) {
         originalConfig._retry = true;
         try {
@@ -44,6 +44,7 @@ instance.interceptors.response.use(
           });
           const { accessToken } = rs.data;
           tokenService.setLocalAccessToken(accessToken);
+          originalConfig.headers["x-access-token"] = accessToken;
           return instance(originalConfig);
         } catch (_error) {
           return Promise.reject(_error);

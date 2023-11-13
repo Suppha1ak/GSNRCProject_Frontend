@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
+import { AuthProvider } from "./service/auth.context.service/auth.context";
 import LandingPage from "./component/page/landingPage";
 import HomePage from "./component/page/homePage"
 import ProductPage from "./component/page/productPage"
@@ -31,20 +32,22 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Navbar />
-        <div className='App'>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/product' element={<ProductPage />} />
-            <Route path='/create' element={ <CreatePage /> } />
-            <Route path='/update/:id' element={<UpdatePage />} />
-            <Route path='/detail/:id' element={<DetailPage />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/contact' element={<ContactPage />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<SignUo />} />
-          </Routes>
-        </div>
+      <AuthProvider>
+        <Navbar />
+          <div className='App'>
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/product' element={<ProductPage />} />
+              <Route path='/create' element={ <CreatePage /> } />
+              <Route path='/update/:id' element={<UpdatePage />} />
+              <Route path='/detail/:id' element={<DetailPage />} />
+              <Route path='/about' element={<AboutPage />} />
+              <Route path='/contact' element={<ContactPage />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<SignUo />} />
+            </Routes>
+          </div>
+        </AuthProvider>
     </BrowserRouter>
   );
   
