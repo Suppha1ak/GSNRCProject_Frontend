@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
     const storedUserData = JSON.parse(localStorage.getItem("user") || "{}");
     const storedUsername = storedUserData.username;
     const storedRoles = storedUserData.roles;
-
+    
     if (token && storedUsername) {
       setIsLogged(true);
       setUsername(storedUsername);
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
       setIsLogged(false);
       setUsername("");
       setRoles(null);
-    }
+    }    
   }, []);
 
   return (

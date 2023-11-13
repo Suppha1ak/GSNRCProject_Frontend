@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
 import { AuthProvider } from "./service/auth.context.service/auth.context";
+import {ProtectRoute} from './service/auth.context.service/protectedRoute'
 import LandingPage from "./component/page/landingPage";
 import HomePage from "./component/page/homePage"
 import ProductPage from "./component/page/productPage"
@@ -38,7 +39,8 @@ const App = () => {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/product' element={<ProductPage />} />
-              <Route path='/create' element={ <CreatePage /> } />
+              {/* <Route path='/1' element={<ProtectRoute />} /> */}
+              <Route path='/create' element={<ProtectRoute rolesToken={['ADMIN']}><CreatePage /></ProtectRoute> } />
               <Route path='/update/:id' element={<UpdatePage />} />
               <Route path='/detail/:id' element={<DetailPage />} />
               <Route path='/about' element={<AboutPage />} />
