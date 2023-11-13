@@ -9,6 +9,8 @@ import UpdatePage from "./component/page/updatePage";
 import DetailPage from "./component/page/detailPage"
 import AboutPage from "./component/page/aboutPage"
 import ContactPage from "./component/page/contactPage"
+import Login from "./component/page/signInPage"
+import SignUo from "./component/page/signUpPage"
 import "./assets/css/style.css";
 
 const App = () => {
@@ -39,6 +41,8 @@ const App = () => {
             <Route path='/detail/:id' element={<DetailPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/contact' element={<ContactPage />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<SignUo />} />
           </Routes>
         </div>
     </BrowserRouter>
