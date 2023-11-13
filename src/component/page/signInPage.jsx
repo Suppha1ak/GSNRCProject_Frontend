@@ -28,10 +28,10 @@ const Signin = () => {
   };
 
   return (
-    <div className="card-create">
+    <div className="card_sign">
       <div className="image-side">
         <img
-          src="https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png"
           alt="Card Image"
         />
       </div>
