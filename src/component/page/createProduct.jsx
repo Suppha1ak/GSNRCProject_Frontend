@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Axios } from "../../service/auth.context";
+import { useState } from "react";
+import Axios from "../../service/auth.context.service/axios.service";
 import { useNavigate } from "react-router-dom";
 
 const CreateProduct = () => {
@@ -31,7 +31,7 @@ const CreateProduct = () => {
     }
   };
 
-  const handleCancle = (e) => {
+  const handleCancle = () => {
     navigate("/");
   };
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Axios } from "../../service/auth.context";
+import Axios from "../../service/auth.context.service/axios.service";
 import { Link } from "react-router-dom";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
