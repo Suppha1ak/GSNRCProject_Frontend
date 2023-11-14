@@ -75,7 +75,7 @@ const Signup = () => {
                             type="text"
                             className="form-control"
                             name="username"
-                            placeholder="Email address"
+                            placeholder="Username"
                             onChange={handleInputChange}
                           />
                         </div>
@@ -103,7 +103,7 @@ const Signup = () => {
                             type="password"
                             className="form-control"
                             name="password"
-                            placeholder="Email address"
+                            placeholder="Password"
                             onChange={handleInputChange}
                           />
                         </div>
