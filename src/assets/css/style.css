@@ -1069,3 +1069,17 @@ margin-top: 25px;
   box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
   0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
 }
+
+.Linkto {
+  color:#FFF;
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.Linkto:hover{
+  color: #007bff;
+}
+
+.d-grid{
+  margin-top: 20px;
+}

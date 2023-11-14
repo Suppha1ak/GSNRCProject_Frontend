@@ -147,7 +147,9 @@ const UpdatePage = () => {
                             value={Carcenters.primaryColor}
                           />
                         </div>
-
+<br /> {/* ไม่แนะนำแต่ ขกจัดด layout แล้ว T^T */}
+<br />
+<br />
                         <button to="" className="warning" onClick={handleClick}>
                           {" "}
                           Update{" "}

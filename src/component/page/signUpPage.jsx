@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SigninAndSignup from "../../service/auth.context.service/signIn.singUp.service";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -24,13 +25,23 @@ const Signup = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      await SigninAndSignup.register(user.username, user.email, user.password);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
+    if(user.password === user.Confirm){
+      try {
+        setLoading(true);
+        await SigninAndSignup.register(user.username, user.email, user.password);
+        navigate("/");
+      } catch (error) {
+        console.error(error);
+      }
+    }else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Password does Math!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
     }
+
   };
 
   return (
@@ -89,7 +100,7 @@ const Signup = () => {
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="password"
                             className="form-control"
                             name="password"
                             placeholder="Email address"
@@ -103,14 +114,14 @@ const Signup = () => {
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="password"
                             className="form-control"
                             name="Confirm"
                             placeholder="Confirm Password"
                             onChange={handleInputChange}
                           />
                         </div>
-                        <div className="d-grid gap-2">
+                        <div className="d-grid">
                           <button
                             type="button"
                             className="btn btn-success form-control"
@@ -121,7 +132,7 @@ const Signup = () => {
                           <li>
                             <Link
                               to="/login"
-                              className="btn btn-primary form-control mt-2"
+                              className="Linkto"
                             >
                               <h3>Signin</h3>
                             </Link>

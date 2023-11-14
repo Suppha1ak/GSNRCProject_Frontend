@@ -71,14 +71,14 @@ const Signin = () => {
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="password"
                             className="form-control"
                             name="password"
                             placeholder="Password"
                             onChange={handleInputChange}
                           />
                         </div>
-                        <div className="d-grid gap-2">
+                        <div className="d-grid">
                           <button
                             type="button"
                             className="btn btn-success form-control"
@@ -96,7 +96,7 @@ const Signin = () => {
                           <li>
                             <Link
                               to="/signup"
-                              className="btn btn-primary form-control mt-2"
+                              className="Linkto"
                             >
                               <h3>Signup</h3>
                             </Link>
