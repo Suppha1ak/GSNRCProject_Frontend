@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useAuth } from "../../service/auth.context.service/auth.context";
 
 const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
@@ -6,10 +6,12 @@ const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
 
 const Navbar = () => {
   const { token , username} = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    navigate("/");
     window.location.reload();
   };
 
