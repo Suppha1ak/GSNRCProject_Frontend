@@ -948,7 +948,7 @@ margin-top: 25px;
   border: none;
   outline: none;
   transition: background-color 0.3s;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .danger{
@@ -1052,7 +1052,7 @@ margin-top: 25px;
     border-color: #007bff;
   }
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 10px;
 }
 
 .card_sign {
@@ -1060,6 +1060,21 @@ margin-top: 25px;
   max-width: 100%;
   width: 800px;
   height: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+}
+
+.card_regis {
+  display: flex;
+  max-width: 100%;
+  width: 800px;
+  height: 500px;
   text-align: center;
   margin: 0 auto;
   margin-top: 100px;
@@ -1091,13 +1106,30 @@ margin-top: 25px;
   0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
 }
 
-.Linkto {
+.LinktoLogin {
   color:#FFF;
   text-decoration: underline;
   font-size: 0.8rem;
+  margin-top: 40px;
+  margin-left: -21px;
+  position: fixed;
 }
 
-.Linkto:hover{
+.LinktoLogin:hover{
+  color: #007bff;
+}
+
+.LinktoRegister {
+  color:#FFF;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  margin-top: 40px;
+  margin-left: -14px;
+  margin-top: 20px;
+  position: fixed;
+}
+
+.LinktoRegister:hover{
   color: #007bff;
 }
 
@@ -1147,4 +1179,25 @@ margin-top: 25px;
   0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
   background-color: darkred;
   color: #FFF;
+}
+
+input {
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+}
+
+input:focus {
+  border-color: #ffffff; /* เปลี่ยนสีเส้นขอบเมื่อได้รับการโฟกัส */
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+}
+
+input::placeholder {
+  color: #aaa; 
+}
+
+input::input-placeholder {
+  color: #333; 
 }

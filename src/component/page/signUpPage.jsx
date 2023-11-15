@@ -59,7 +59,7 @@ const Signup = () => {
       {loading ? (
         <Loading animation={animationLoading} />
       ) : (
-        <div className="card_sign">
+        <div className="card_regis">
           <div className="image-side">
             <img
               src="https://as2.ftcdn.net/v2/jpg/01/12/09/17/1000_F_112091769_vWEmDiwVIpO4H1plGuhYgnmduTuiGUh2.jpg"
@@ -142,7 +142,7 @@ const Signup = () => {
                           <li>
                             <Link
                               to="/login"
-                              className="Linkto"
+                              className="LinktoRegister"
                             >
                               <h3>Signin</h3>
                             </Link>

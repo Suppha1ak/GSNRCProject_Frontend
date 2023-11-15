@@ -58,7 +58,7 @@ const Signin = () => {
                           <br />
                           <input
                             type="text"
-                            className="form-control"
+                            className=""
                             name="username"
                             placeholder="username"
                             onChange={handleInputChange}
@@ -72,7 +72,6 @@ const Signin = () => {
                           <br />
                           <input
                             type="password"
-                            className="form-control"
                             name="password"
                             placeholder="Password"
                             onChange={handleInputChange}
@@ -95,10 +94,9 @@ const Signin = () => {
                           <li>
                             <Link
                               to="/signup"
-                              className="Linkto"
+                              className="LinktoLogin"
                             >
-                              <h3>Signup</h3>
-                              
+                              <h3>Signup</h3>                    
                             </Link>
                           </li>
                         </div>
