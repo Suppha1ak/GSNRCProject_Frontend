@@ -81,24 +81,24 @@ const Signin = () => {
                         <div className="d-grid">
                           <button
                             type="button"
-                            className="btn btn-success form-control"
+                            className="successsign"
                             onClick={handleClick}
                           >
                             <h3>Login</h3>
                           </button>
                           <button
                             type="button"
-                            className="btn btn-danger form-control"
+                            className="dangersign"
                           >
                             <h3>Cancel</h3>
                           </button>
-
                           <li>
                             <Link
                               to="/signup"
                               className="Linkto"
                             >
                               <h3>Signup</h3>
+                              
                             </Link>
                           </li>
                         </div>

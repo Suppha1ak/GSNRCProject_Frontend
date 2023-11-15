@@ -25,22 +25,32 @@ const Signup = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    if(user.password === user.Confirm){
-      try {
-        setLoading(true);
-        await SigninAndSignup.register(user.username, user.email, user.password);
-        navigate("/");
-      } catch (error) {
-        console.error(error);
+    if(user.password !== ""  && user.password !== "" && user.Confirm !== "" && user.email !== "" ){
+      if(user.password === user.Confirm){
+        try {
+          setLoading(true);
+          await SigninAndSignup.register(user.username, user.email, user.password);
+          navigate("/");
+        } catch (error) {
+          console.error(error);
+        }
+      }else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Password does Math!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       }
     }else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Password does Math!',
+        text: 'Text Empty',
         footer: '<a href="">Why do I have this issue?</a>'
       })
     }
+   
 
   };
 
@@ -124,7 +134,7 @@ const Signup = () => {
                         <div className="d-grid">
                           <button
                             type="button"
-                            className="btn btn-success form-control"
+                            className="successsign"
                             onClick={handleClick}
                           >
                             <h3> Register </h3>

@@ -1104,3 +1104,47 @@ margin-top: 25px;
 .d-grid{
   margin-top: 20px;
 }
+
+.successsign{
+  padding: 10px 15px;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.successsign:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: limegreen;
+  color: #FFF;
+}
+
+.dangersign{
+  padding: 10px 15px;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.dangersign:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: darkred;
+  color: #FFF;
+}
