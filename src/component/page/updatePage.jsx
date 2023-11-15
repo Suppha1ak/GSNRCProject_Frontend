@@ -144,9 +144,9 @@ const UpdatePage = () => {
                             <option value="" hidden>
                               Please select a color
                             </option>
-                            <option value="Black">ดำ</option>
-                            <option value="White">ขาว</option>
-                            <option value="Gray">เทา</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Gray">Gray</option>
                           </select>
                         </div>
                         <button
