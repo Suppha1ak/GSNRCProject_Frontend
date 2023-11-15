@@ -84,7 +84,7 @@ const UpdatePage = () => {
                             type="text"
                             className="form-control"
                             name="brand"
-                            placeholder="brand"
+                            placeholder={Carcenters.brand}
                             onChange={handleChange}
                           />
                         </div>
@@ -98,7 +98,7 @@ const UpdatePage = () => {
                             type="text"
                             className="form-control"
                             name="model"
-                            placeholder="model"
+                            placeholder={Carcenters.model}
                             onChange={handleChange}
                           />
                         </div>
@@ -112,7 +112,7 @@ const UpdatePage = () => {
                             type="number"
                             className="form-control"
                             name="price"
-                            placeholder="price"
+                            placeholder={Carcenters.price}
                             onChange={handleChange}
                           />
                         </div>
@@ -126,7 +126,7 @@ const UpdatePage = () => {
                             type="text"
                             className="form-control"
                             name="image"
-                            placeholder="image"
+                            placeholder={Carcenters.image}
                             onChange={handleChange}
                           />
                         </div>
