@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SigninAndSignup from "../../service/auth.context.service/signIn.singUp.service";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+import Swal from "sweetalert2";
 
 const Signin = () => {
   const [signin, setSignin] = useState({
@@ -20,13 +21,48 @@ const Signin = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      // ตรวจสอบช่องว่าง
+      if (signin.username === "" || signin.password === "") {
+        throw new Error("Text Empty");
+      }
+
+      // ตรวจสอบ username ไม่มีอักษรพิเศษ
+      if (!/^[a-zA-Z0-9]+$/.test(signin.username)) {
+        throw new Error("Invalid characters in Username");
+      }
+
+      // ตรวจสอบรหัสผ่านต้องมีความยาวมากกว่าหรือเท่ากับ 8 ตัว
+      if (signin.password.length <= 8) {
+        throw new Error("Password must be at least 8 characters long");
+      }
+
       setLoading(true);
       await SigninAndSignup.login(signin.username, signin.password);
+      // ลงทะเบียนสำเร็จ
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful!",
+        text: "You can now log in.",
+      });
       navigate("/");
       window.location.reload();
     } catch (error) {
-      console.error(error);
+      // แสดงข้อความแจ้งเตือนถ้ามีข้อผิดพลาด
+      const errorMessage =
+      error.response?.data?.message || error.message || "An error occurred during login.";
+    
+      console.log(errorMessage); // ตรวจสอบค่า errorMessage ที่ถูกเก็บ
+    
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: errorMessage,
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+    } finally {
+      setLoading(false);
     }
+    
   };
 
   return (
@@ -85,18 +121,12 @@ const Signin = () => {
                           >
                             <h3>Login</h3>
                           </button>
-                          <button
-                            type="button"
-                            className="dangersign"
-                          >
+                          <button type="button" className="dangersign">
                             <h3>Cancel</h3>
                           </button>
                           <li>
-                            <Link
-                              to="/signup"
-                              className="LinktoLogin"
-                            >
-                              <h3>Signup</h3>                    
+                            <Link to="/signup" className="LinktoLogin">
+                              <h3>Signup</h3>
                             </Link>
                           </li>
                         </div>

@@ -25,33 +25,67 @@ const Signup = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    if(user.password !== ""  && user.password !== "" && user.Confirm !== "" && user.email !== "" ){
-      if(user.password === user.Confirm){
-        try {
-          setLoading(true);
-          await SigninAndSignup.register(user.username, user.email, user.password);
-          navigate("/");
-        } catch (error) {
-          console.error(error);
-        }
-      }else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Password does Math!',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
-      }
-    }else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Text Empty',
-        footer: '<a href="">Why do I have this issue?</a>'
-      })
-    }
-   
 
+    try {
+      // ตรวจสอบช่องว่าง
+      if (
+        user.username === "" ||
+        user.email === "" ||
+        user.password === "" ||
+        user.Confirm === ""
+      ) {
+        throw new Error("Text Empty");
+      }
+
+      // ตรวจสอบ username ไม่มีอักษรพิเศษ
+      if (!/^[a-zA-Z0-9]+$/.test(user.username)) {
+        throw new Error("Invalid characters in Username");
+      }
+
+      // ตรวจสอบรูปแบบอีเมล
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(user.email)) {
+        throw new Error("Invalid Email format");
+      }
+
+      // ตรวจสอบรหัสผ่านตรงกัน
+      if (user.password !== user.Confirm) {
+        throw new Error("Password does not match");
+      }
+
+      // ตรวจสอบรหัสผ่านต้องมีความยาวมากกว่าหรือเท่ากับ 8 ตัว
+      if (user.password.length <= 8) {
+        throw new Error("Password must be at least 8 characters long");
+      }
+
+      setLoading(true);
+      // ส่งข้อมูลลงทะเบียนไปที่ API
+      await SigninAndSignup.register(user.username, user.email, user.password);
+
+      // ลงทะเบียนสำเร็จ
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful!",
+        text: "You can now log in.",
+      });
+
+      // ทำการ redirect หน้าไปที่ "/"
+      navigate("/login");
+    } catch (error) {
+      // แสดงข้อความแจ้งเตือนถ้ามีข้อผิดพลาด
+      const errorMessage =
+        error.response?.data?.message ||
+        "An error occurred during registration.";
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: errorMessage,
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -96,7 +130,7 @@ const Signup = () => {
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="email"
                             className="form-control"
                             name="email"
                             placeholder="Email address"
@@ -140,10 +174,7 @@ const Signup = () => {
                             <h3> Register </h3>
                           </button>
                           <li>
-                            <Link
-                              to="/login"
-                              className="LinktoRegister"
-                            >
+                            <Link to="/login" className="LinktoRegister">
                               <h3>Signin</h3>
                             </Link>
                           </li>
