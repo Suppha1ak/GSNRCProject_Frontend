@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, BrowserRouter , Route } from 'react-router-dom';
-import { AuthProvider } from "./service/auth.context.service/auth.context";
-import ProtectRoute from './service/auth.context.service/protectedRoute'
+import { AuthProvider } from "./service/auth.service/auth.context";
+import ProtectRoute from './service/auth.service/protectedRoute'
 import LandingPage from "./component/page/landingPage";
 import HomePage from "./component/page/homePage"
 import ProductPage from "./component/page/productPage"

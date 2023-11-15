@@ -1,4 +1,4 @@
-import { useAuth } from "../../service/auth.context.service/auth.context";
+import { useAuth } from "../../service/auth.service/auth.context";
 
 const ProfilePage = () => {
   //10

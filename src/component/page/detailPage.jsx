@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import Axios from "../../service/auth.context.service/axios.service";
+import Axios from "../../service/auth.service/axios.service";
 import Swal from "sweetalert2";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
-import { useAuth } from "../../service/auth.context.service/auth.context";
+import { useAuth } from "../../service/auth.service/auth.context";
 
 const DetailPage = () => {
   const { token, roles } = useAuth();
