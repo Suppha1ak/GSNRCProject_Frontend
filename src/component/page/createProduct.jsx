@@ -3,6 +3,7 @@ import Axios from "../../service/auth.context.service/axios.service";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
+import Swal from "sweetalert2";
 
 const CreateProduct = () => {
   const [Carcenters, setCarcenters] = useState({
@@ -26,6 +27,23 @@ const CreateProduct = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      // ตรวจสอบว่ามีช่อง input ใดๆ ที่เป็นค่าว่างหรือไม่
+      if (
+        !Carcenters.brand ||
+        !Carcenters.model ||
+        !Carcenters.price ||
+        !Carcenters.image ||
+        !Carcenters.primaryColor
+      ) {
+        // ใช้ Swal เพื่อแจ้งเตือน
+        Swal.fire({
+          icon: "error",
+          title: "Empty Fields",
+          text: "Please fill in all fields.",
+        });
+        return;
+      }
+
       setLoading(true);
       await Axios.post(`/Carcenters`, Carcenters);
       navigate("/product");
@@ -36,7 +54,7 @@ const CreateProduct = () => {
   };
 
   const handleCancle = () => {
-    navigate("/");
+    navigate("/product");
   };
 
   return (
@@ -46,10 +64,14 @@ const CreateProduct = () => {
       ) : (
         <div className="card-create">
           <div className="image-side">
-            <img
-              src="https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Card Image"
-            />
+            {Carcenters.image !== "" ? (
+              <img src={Carcenters.image} alt="Preview Image" />
+            ) : (
+              <img
+                src="https://wallpaperaccess.com/full/1838812.jpg"
+                alt="Preview Image"
+              />
+            )}
           </div>
           <div className="detail-side">
             <div className="detail">
@@ -64,7 +86,7 @@ const CreateProduct = () => {
                     <div className="card-body">
                       <form>
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="brand" className="createtext">
                             Brand Car
                           </label>{" "}
                           <br />
@@ -78,7 +100,7 @@ const CreateProduct = () => {
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="model" className="createtext">
                             Model Car
                           </label>{" "}
                           <br />
@@ -92,12 +114,12 @@ const CreateProduct = () => {
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="price" className="createtext">
                             Price Car
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="price"
                             placeholder="price"
@@ -106,11 +128,11 @@ const CreateProduct = () => {
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="image" className="createtext">
                             Image
                           </label>{" "}
                           <br />
-                          <input
+                          <textarea
                             type="text"
                             className="form-control"
                             name="image"
@@ -119,18 +141,23 @@ const CreateProduct = () => {
                           />
                         </div>
 
-                        <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                        <div className="form-group">
+                          <label htmlFor="primaryColor" className="createtext">
                             Primarycolor Car
                           </label>{" "}
                           <br />
-                          <input
-                            type="text"
+                          <select
                             className="form-control"
                             name="primaryColor"
-                            placeholder="primaryColor"
                             onChange={handleChange}
-                          />
+                          >
+                            <option value="" hidden>
+                              Please select a color
+                            </option>
+                            <option value="Black">ดำ</option>
+                            <option value="White">ขาว</option>
+                            <option value="Gray">เทา</option>
+                          </select>
                         </div>
 
                         <button to="" className="success" onClick={handleClick}>

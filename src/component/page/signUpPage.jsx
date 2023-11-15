@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import SigninAndSignup from "../../service/auth.context.service/signIn.singUp.service";
+import SigninAndSignup from "../../service/auth.service/signIn.singUp.service";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
 import Swal from "sweetalert2";
@@ -54,7 +54,7 @@ const Signup = () => {
       }
 
       // ตรวจสอบรหัสผ่านต้องมีความยาวมากกว่าหรือเท่ากับ 8 ตัว
-      if (user.password.length <= 8) {
+      if (user.password.length < 8) {
         throw new Error("Password must be at least 8 characters long");
       }
 
@@ -75,7 +75,8 @@ const Signup = () => {
       // แสดงข้อความแจ้งเตือนถ้ามีข้อผิดพลาด
       const errorMessage =
         error.response?.data?.message ||
-        "An error occurred during registration.";
+        error.message ||
+        "An error occurred during login.";
 
       Swal.fire({
         icon: "error",

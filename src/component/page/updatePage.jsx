@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Axios from "../../service/auth.context.service/axios.service";
+import Axios from "../../service/auth.service/axios.service";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
@@ -59,7 +59,9 @@ const UpdatePage = () => {
       ) : (
         <div className="card-create">
           <div className="image-side">
-            <img src={Carcenters.image} alt="Card Image" />
+            {Carcenters.image && (
+              <img src={Carcenters.image} alt="Preview Image" />
+            )}
           </div>
           <div className="detail-side">
             <div className="detail">
@@ -67,14 +69,14 @@ const UpdatePage = () => {
                 <h1 className="createtext">GSNRCThailand</h1>
                 <div className="row form">
                   <div className="col-6 justify-cintent-center">
-                    <h5 className="card-header"> CreateProduct Cars</h5>
+                    <h5 className="card-header"> UpdateProduct Cars</h5>
                     <div className="error">
                       {error && "Something went wrong !!"}
                     </div>
                     <div className="card-body">
                       <form>
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="brand" className="createtext">
                             Brand Car
                           </label>{" "}
                           <br />
@@ -84,12 +86,11 @@ const UpdatePage = () => {
                             name="brand"
                             placeholder="brand"
                             onChange={handleChange}
-                            value={Carcenters.brand}
                           />
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="model" className="createtext">
                             Model Car
                           </label>{" "}
                           <br />
@@ -99,58 +100,60 @@ const UpdatePage = () => {
                             name="model"
                             placeholder="model"
                             onChange={handleChange}
-                            value={Carcenters.model}
                           />
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="price" className="createtext">
                             Price Car
                           </label>{" "}
                           <br />
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="price"
                             placeholder="price"
                             onChange={handleChange}
-                            value={Carcenters.price}
                           />
                         </div>
 
                         <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                          <label htmlFor="image" className="createtext">
                             Image
                           </label>{" "}
                           <br />
-                          <input
+                          <textarea
                             type="text"
                             className="form-control"
                             name="image"
                             placeholder="image"
                             onChange={handleChange}
-                            value={Carcenters.image}
                           />
                         </div>
 
-                        <div className="from-group">
-                          <label htmlFor="name" className="createtext">
+                        <div className="form-group">
+                          <label htmlFor="primaryColor" className="createtext">
                             Primarycolor Car
                           </label>{" "}
                           <br />
-                          <input
-                            type="text"
+                          <select
                             className="form-control"
                             name="primaryColor"
-                            placeholder="primaryColor"
                             onChange={handleChange}
-                            value={Carcenters.primaryColor}
-                          />
+                          >
+                            <option value="" hidden>
+                              Please select a color
+                            </option>
+                            <option value="Black">ดำ</option>
+                            <option value="White">ขาว</option>
+                            <option value="Gray">เทา</option>
+                          </select>
                         </div>
-<br /> {/* ไม่แนะนำแต่ ขกจัดด layout แล้ว T^T */}
-<br />
-<br />
-                        <button to="" className="warning" onClick={handleClick}>
+                        <button
+                          to=""
+                          className="warningUpdate"
+                          onClick={handleClick}
+                        >
                           {" "}
                           Update{" "}
                         </button>

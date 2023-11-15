@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-
 const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
   .href;
 const LandingPage = ({ onNavigate }) => {

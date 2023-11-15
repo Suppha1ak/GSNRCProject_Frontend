@@ -891,7 +891,7 @@ margin-top: 25px;
   border: none;
   outline: none;
   transition: background-color 0.3s;
-  margin-top: 50px;
+  margin-top: 60px;
   margin-left: 60px;
 }
 
@@ -932,8 +932,8 @@ margin-top: 25px;
   border: none;
   outline: none;
   transition: background-color 0.3s;
-  margin-top: 150px;
-  margin-left: 130px;
+  margin-top: 100px;
+  margin-left: 145px;
 }
 
 .successCreate{
@@ -1200,4 +1200,78 @@ input::placeholder {
 
 input::input-placeholder {
   color: #333; 
+}
+
+.imgProfile {
+  border-radius: 50%;
+  width: 130px; /* ปรับขนาดตามที่คุณต้องการ */
+  height: 130px;
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  border-color: #ffffff;
+  position: fixed;
+  margin-top: -70px;
+  margin-left: -65px;
+}
+
+.textprofile{
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+textarea {
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+}
+
+textarea:focus {
+  border-color: #ffffff; /* เปลี่ยนสีเส้นขอบเมื่อได้รับการโฟกัส */
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+}
+
+textarea::placeholder {
+  color: #aaa; 
+}
+
+select {
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+}
+
+select:focus {
+  border-color: #ffffff; /* เปลี่ยนสีเส้นขอบเมื่อได้รับการโฟกัส */
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+}
+
+.warningUpdate{
+  padding: 10px 15px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-top: 100px;
+  margin-left: 145px;
+}
+
+.warningUpdate:hover{
+  box-shadow: 0 0 5px rgb(0, 0, 0), 0 0 10px rgb(255, 255, 255),
+  0 0 15px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255);
+  background-color: goldenrod;
+  color: #FFF;
+}
+
+.leftDetail{
+  margin-left: 130px;
 }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Axios from "../../service/auth.context.service/axios.service";
+import Axios from "../../service/auth.service/axios.service";
 import { Link } from "react-router-dom";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
-import { useAuth } from "../../service/auth.context.service/auth.context";
+import { useAuth } from "../../service/auth.service/auth.context";
 
 const ListPage = () => {
   const [list, setList] = useState([]);
@@ -50,8 +50,10 @@ const ListPage = () => {
                       setsearchText(event.target.value);
                     }}
                   />
-                  <Link to="/create"><button className="successCreate">Create new!</button></Link>
-              </div>
+                  <Link to="/create">
+                    <button className="successCreate">Create new!</button>
+                  </Link>
+                </div>
               ) : (
                 <div className="right">
                   <input
@@ -70,7 +72,9 @@ const ListPage = () => {
             <div className="cardSpace">
               {list
                 .filter((item) => {
-                  return item.brand.toLowerCase().startsWith(searchText.toLowerCase());
+                  return item.brand
+                    .toLowerCase()
+                    .startsWith(searchText.toLowerCase());
                 })
                 .map((item) => {
                   return (

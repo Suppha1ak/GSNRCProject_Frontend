@@ -40,7 +40,6 @@ const App = () => {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/product' element={<ProductPage />} />
-              {/* <Route path='/1' element={<ProtectRoute />} /> */}
               <Route path='/create' element={<ProtectRoute rolesType={['ADMIN']}><CreatePage /></ProtectRoute> } />
               <Route path='/update/:id' element={<ProtectRoute rolesType={['ADMIN']}><UpdatePage /></ProtectRoute>} />
               <Route path='/detail/:id' element={<ProtectRoute><DetailPage /></ProtectRoute>} />

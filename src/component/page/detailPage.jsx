@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams, Link , useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Axios from "../../service/auth.context.service/axios.service";
 import Swal from "sweetalert2";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
 import { useAuth } from "../../service/auth.context.service/auth.context";
 
-
-
 const DetailPage = () => {
-  const { token , roles } = useAuth();
+  const { token, roles } = useAuth();
   const [detaillist, setDetaillist] = useState({
     brand: "",
     model: "",
@@ -59,30 +57,25 @@ const DetailPage = () => {
   const handleButtonDelete = async () => {
     try {
       const result = await Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
-      
-      if (result.isConfirmed) {     
+
+      if (result.isConfirmed) {
         await Axios.delete(`/Carcenters/${id}`);
         console.log(id);
         navigate("/product");
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        );
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     } catch (error) {
       console.error(error);
     }
   };
-  
 
   return (
     <div>
@@ -100,16 +93,15 @@ const DetailPage = () => {
                 <p>รุ่น : {detaillist.model}</p>
                 <p>สี : {detaillist.primaryColor}</p>
                 <p>ราคา : {detaillist.price}$</p>
-                {token && (
-                  <button
-                  className="styledButtondetail"
-                  onClick={handleButtonClick}
-                  >
-                    จองทันที!
-                  </button>
-                )}
-                {JSON.stringify(roles) === JSON.stringify(['ADMIN']) && (
+                {token &&
+                JSON.stringify(roles) === JSON.stringify(["ADMIN"]) ? (
                   <>
+                    <button
+                      className="styledButtondetail"
+                      onClick={handleButtonClick}
+                    >
+                      จองทันที!
+                    </button>
                     <Link to={`/update/${detaillist.id}`} className="warning">
                       แก้ไข
                     </Link>
@@ -117,6 +109,18 @@ const DetailPage = () => {
                       ลบ
                     </button>
                   </>
+                ) : (
+                  token &&
+                  JSON.stringify(roles) === JSON.stringify(["USER"]) && (
+                    <div className="leftDetail">
+                      <button
+                        className="styledButtondetail"
+                        onClick={handleButtonClick}
+                      >
+                        จองทันที!
+                      </button>
+                    </div>
+                  )
                 )}
               </div>
             </div>

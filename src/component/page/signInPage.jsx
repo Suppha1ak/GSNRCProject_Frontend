@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import SigninAndSignup from "../../service/auth.context.service/signIn.singUp.service";
+import SigninAndSignup from "../../service/auth.service/signIn.singUp.service";
 import Loading from "../../isLoading/loadingPage";
 import animationLoading from "../../assets/videoJSON/loadingPage.json";
 import Swal from "sweetalert2";
@@ -32,27 +32,33 @@ const Signin = () => {
       }
 
       // ตรวจสอบรหัสผ่านต้องมีความยาวมากกว่าหรือเท่ากับ 8 ตัว
-      if (signin.password.length <= 8) {
+      if (signin.password.length < 8) {
         throw new Error("Password must be at least 8 characters long");
       }
 
       setLoading(true);
       await SigninAndSignup.login(signin.username, signin.password);
-      // ลงทะเบียนสำเร็จ
+      navigate("/");
+      // ล็อคอินสำเร็จ
       Swal.fire({
         icon: "success",
-        title: "Registration Successful!",
-        text: "You can now log in.",
+        title: "Login Successful!",
+        text: "You can use webservice.",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // รีโหลดหน้าเว็บทันที
+          window.location.reload();
+        }
       });
-      navigate("/");
-      window.location.reload();
     } catch (error) {
       // แสดงข้อความแจ้งเตือนถ้ามีข้อผิดพลาด
       const errorMessage =
-      error.response?.data?.message || error.message || "An error occurred during login.";
-    
+        error.response?.data?.message ||
+        error.message ||
+        "An error occurred during login.";
+
       console.log(errorMessage); // ตรวจสอบค่า errorMessage ที่ถูกเก็บ
-    
+
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -62,7 +68,10 @@ const Signin = () => {
     } finally {
       setLoading(false);
     }
-    
+  };
+
+  const handleCancle = () => {
+    navigate("/");
   };
 
   return (
@@ -121,7 +130,11 @@ const Signin = () => {
                           >
                             <h3>Login</h3>
                           </button>
-                          <button type="button" className="dangersign">
+                          <button
+                            type="button"
+                            className="dangersign"
+                            onClick={handleCancle}
+                          >
                             <h3>Cancel</h3>
                           </button>
                           <li>

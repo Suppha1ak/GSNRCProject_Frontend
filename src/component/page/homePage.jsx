@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../service/auth.context.service/auth.context";
+import { useAuth } from "../../service/auth.service/auth.context";
 
 const HomePage = () => {
   const { token } = useAuth();
@@ -170,9 +170,11 @@ const HomePage = () => {
           </div>
         </div>
         <p>
-        In 1886, Carl Bentz German engineers successfully created the world is 
-        first combustion engine car. Benz Patent Motorwagen uses a reciprocating-like structure of a steam engine. 
-        It has simply added a device that converts fuel in liquid form into gas. And added an exhaust intake valve in the form of a 4-stroke engine.
+          In 1886, Carl Bentz German engineers successfully created the world is
+          first combustion engine car. Benz Patent Motorwagen uses a
+          reciprocating-like structure of a steam engine. It has simply added a
+          device that converts fuel in liquid form into gas. And added an
+          exhaust intake valve in the form of a 4-stroke engine.
         </p>
       </div>
       <div className="card" style={{ width: "50%" }}>
@@ -182,7 +184,9 @@ const HomePage = () => {
           </div>
         </Link>
         {token ? (
-          <Link to="/profile"> {/* ให้เปลี่ยน "/profile" เป็น path ที่คุณต้องการ */}
+          <Link to="/profile">
+            {" "}
+            {/* ให้เปลี่ยน "/profile" เป็น path ที่คุณต้องการ */}
             <div className="box2">
               <h2>Profile</h2>
             </div>

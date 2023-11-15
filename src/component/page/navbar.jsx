@@ -1,11 +1,11 @@
-import { Link , useNavigate} from "react-router-dom";
-import { useAuth } from "../../service/auth.context.service/auth.context";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../service/auth.service/auth.context";
 
 const videoSrc = new URL("../../assets/video/background.mp4", import.meta.url)
   .href;
 
 const Navbar = () => {
-  const { token , username} = useAuth();
+  const { token, username } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,11 +22,7 @@ const Navbar = () => {
         Your browser does not support the video tag.
       </video>
       <div className="navBar">
-        {token ? (
-          <h2 className="white-text">Hi, {username}</h2>
-        ) : (
-          <h2></h2>
-        )}
+        {token ? <h2 className="white-text">Hi, {username}</h2> : <h2></h2>}
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -42,7 +38,9 @@ const Navbar = () => {
           </li>
           {token ? (
             <li>
-              <button onClick={handleLogout} className="Logout">Logout</button>
+              <button onClick={handleLogout} className="Logout">
+                Logout
+              </button>
             </li>
           ) : (
             <div></div>
